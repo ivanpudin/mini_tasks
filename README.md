@@ -1,7 +1,9 @@
-# How to work here
+# How to work
+
+**Create separate folder**
 
 ```
-git clone
+git clone https://github.com/ivanpudin/mini_tasks
 
 git branch branch_name
 
@@ -12,9 +14,6 @@ docker-compose up
 
 **Run the docker and do your work**
 
-**localhost:7000**
+**Everything can be found at localhost:7000**
 
-```
-git add, commit, push
-
-```
+then git add, commit, push
