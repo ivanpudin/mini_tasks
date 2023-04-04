@@ -20,4 +20,9 @@ then git add, commit, push from a branch that you are working on
 
 after pushing we will merge code online inside github
 
-## When you start your work be sure to work with up to date code, so use
+## When you start your work be sure to work with up to date code
+
+```
+git config pull.rebase false
+git pull
+```
