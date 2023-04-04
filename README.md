@@ -1,4 +1,4 @@
-# How to work
+# How to set everything up
 
 **Create separate folder**
 
@@ -16,4 +16,8 @@ docker-compose up
 
 **Everything can be found at localhost:7000**
 
-then git add, commit, push
+then git add, commit, push from a branch that you are working on
+
+after pushing we will merge code online inside github
+
+## When you start your work be sure to work with up to date code, so use
