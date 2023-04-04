@@ -12,15 +12,17 @@ git checkout branch_name
 docker-compose up
 ```
 
-**Run the docker and do your work**
+# How to work
 
-**Everything can be found at localhost:7000**
+Run the docker and do your work
 
-then git add, commit, push from a branch that you are working on
+Everything can be found at **localhost:7000**
 
-after pushing we will merge code online inside github
+After you are done: git add, commit, push from a branch that you are working on
 
-## When you start your work be sure to work with up to date code
+# git pull
+
+When you start, be sure to work with up to date code
 
 ```
 git config pull.rebase false
