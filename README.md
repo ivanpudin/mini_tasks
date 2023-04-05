@@ -28,13 +28,3 @@ When you start, be sure to work with up to date code
 git config pull.rebase false
 git pull
 ```
-
-# If Docker does not work
-
-got to folder with the task file and type
-
-```
-php -S localhost:3000 filename.php
-```
-
-something
