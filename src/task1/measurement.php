@@ -2,7 +2,7 @@
 <form method='POST'>
   <fieldset>
     <legend>Select the unit of measure to convert</legend>
-    <select name='unit' onchange='updateValues(this.value)'>
+    <select name='unit1' onchange='updateValues(this.value)' required>
       <option value='' disabled selected>Select unit</option>
       <optgroup label='Mass'>
         <option value='kg'>Kilograms</option>
@@ -21,9 +21,9 @@
       </optgroup>
     </select>
     <legend>Select the amount of unit</legend>
-    <input type='number' step="any" id='quantity' name='quantity' />
+    <input type='number' step="any" id='quantity' name='quantity' min='0.01' required/>
     <legend>Select the unit of measure to convert</legend>
-    <select name='unit_2' id='unit-select'>
+    <select name='unit2' id='unit-select' required >
     <option value="" disabled selected>Select unit</option>'
     </select>
   </fieldset>
@@ -87,24 +87,22 @@ $unitNames = [
   'knots' => 'knots',
 ];
 
-$units = isset($_POST['unit'], $_POST['unit_2'], $_POST['quantity']) ? [$_POST['unit'], $_POST['unit_2'], $_POST['quantity']] : [];
+$units = isset($_POST['unit1'], $_POST['unit2'], $_POST['quantity']) ? [$_POST['unit1'], $_POST['unit2'], (float)$_POST['quantity']] : [];
 
-if (count($units) === 3 && (float) $_POST['quantity'] > 0) {
-  $quantity = (float) $_POST['quantity'];
-
-  $equals = 0;
-
-  if (in_array($_POST['unit'], ['kg', 'grams', 'lb'])) {
-    $equals = (new massConvertor())->convert($_POST['unit'], $_POST['unit_2'], $quantity);
+if (count($units) === 3) {
+  list($unit1, $unit2, $quantity) = $units;
+ 
+  if (in_array($unit1, ['kg', 'grams', 'lb'])) {
+    $equals = (new massConvertor())->convert($unit1, $unit2, $quantity);
   } elseif (true) { /* add code for other converters */
   }
   ;
 
-  $formatted_quantity = floor($quantity) == $quantity ? number_format($quantity) : number_format($quantity, 3, '.', ',');
+  $formatted_quantity = floor($quantity) == $quantity ? number_format($quantity) : number_format($quantity, 2, '.', ',');
 
-  $formatted_equals = floor($equals) == $equals ? number_format($equals) : number_format($equals, 3, '.', ',');
+  $formatted_equals = floor($equals) == $equals ? number_format($equals) : number_format($equals, 2, '.', ',');
 
-  echo "<span>{$formatted_quantity} {$unitNames[$_POST['unit']]} equals to {$formatted_equals} {$unitNames[$_POST['unit_2']]}</span>";
+  echo "<span>{$formatted_quantity} {$unitNames[$unit1]} equals to {$formatted_equals} {$unitNames[$unit2]}</span>";
 }
 
 ?>
