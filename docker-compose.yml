@@ -8,9 +8,9 @@ services:
     depends_on:
       - db
     volumes:
-      - ./phpDir/src:/var/www/html/
+      - ./src:/var/www/html/
     ports:
-      - 7000:80
+      - 7001:80
   db:
     container_name: Database
     image: mysql
