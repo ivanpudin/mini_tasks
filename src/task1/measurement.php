@@ -1,4 +1,5 @@
 <?php include_once 'massConvertor.php';?>
+<?php include_once 'temperatureConvertor.php';?>
 <form method='POST'>
   <fieldset>
     <legend>Select the unit of measure to convert</legend>
@@ -94,8 +95,11 @@ if (count($units) === 3) {
  
   if (in_array($unit1, ['kg', 'grams', 'lb'])) {
     $equals = (new massConvertor())->convert($unit1, $unit2, $quantity);
-  } elseif (true) { /* add code for other converters */
+  } elseif (in_array($unit1,['celsius', 'fahrenheit', 'kelvin'])) {
+    $equals = (new temperatureConvertor())->convert($unit1, $unit2, $quantity);
+    
   }
+   /* add code for other converters. */
   ;
 
   $formatted_quantity = floor($quantity) == $quantity ? number_format($quantity) : number_format($quantity, 2, '.', ',');
