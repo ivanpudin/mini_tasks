@@ -84,7 +84,7 @@ $unitNames = [
   'fahrenheit' => 'fahrenheit',
   'kph' => 'kilometers per hour',
   'mps' => 'meters per second',
-  'knots' => 'knots'
+  'knots' => 'knots',
 ];
 
 $units = isset($_POST['unit1'], $_POST['unit2'], $_POST['quantity']) ? [$_POST['unit1'], $_POST['unit2'], (float)$_POST['quantity']] : [];
