@@ -9,7 +9,7 @@ class temperatureTest extends TestCase
 {
     public function testTemperatureConvertKelvinToCelsius()
     {
-        $convertor = new speedConvertor();
+        $convertor = new temperatureConvertor();
         $unit1 = 'kelvin';
         $unit2 = 'celsius';
         $quantity = 235;
@@ -21,7 +21,7 @@ class temperatureTest extends TestCase
 
     public function testTemperatureConvertKelvinToFahrenheit()
     {
-        $convertor = new speedConvertor();
+        $convertor = new temperatureConvertor();
         $unit1 = 'kelvin';
         $unit2 = 'fahrenheit';
         $quantity = 500;
@@ -33,7 +33,7 @@ class temperatureTest extends TestCase
 
     public function testTemperatureConvertCelsiusToKelvin()
     {
-        $convertor = new speedConvertor();
+        $convertor = new temperatureConvertor();
         $unit1 = 'celsius';
         $unit2 = 'kelvin';
         $quantity = -13.5;
@@ -44,7 +44,7 @@ class temperatureTest extends TestCase
     }
     public function testTemperatureConvertCelsiusToFahrenheit()
     {
-        $convertor = new speedConvertor();
+        $convertor = new temperatureConvertor();
         $unit1 = 'celsius';
         $unit2 = 'fahrenheit';
         $quantity = 53.5;
@@ -56,7 +56,7 @@ class temperatureTest extends TestCase
 
     public function testTemperatureConvertFahrenheitToCelsius()
     {
-        $convertor = new speedConvertor();
+        $convertor = new temperatureConvertor();
         $unit1 = 'fahrenheit';
         $unit2 = 'celsius';
         $quantity = -12.3;
@@ -68,7 +68,7 @@ class temperatureTest extends TestCase
 
     public function testTemperatureConvertFahrenheitToKelvin()
     {
-        $convertor = new speedConvertor();
+        $convertor = new temperatureConvertor();
         $unit1 = 'fahrenheit';
         $unit2 = 'kelvin';
         $quantity = 54.2;
