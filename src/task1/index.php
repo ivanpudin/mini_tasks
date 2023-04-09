@@ -6,9 +6,7 @@
 
 <main>
     <?php
-include 'temperature.php';
-include 'speed.php';
-include 'mass.php';
+include 'measurement.php';
 ?>
 </main>
 

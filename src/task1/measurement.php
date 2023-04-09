@@ -21,7 +21,7 @@
       </optgroup>
     </select>
     <legend>Select the amount of unit</legend>
-    <input type='number' step="any" id='quantity' name='quantity' min='0.01' required/>
+    <input type='number' step="0.01" id='quantity' name='quantity' required/>
     <legend>Select the unit of measure to convert</legend>
     <select name='unit2' id='unit-select' required >
     <option value="" disabled selected>Select unit</option>'
