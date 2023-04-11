@@ -13,7 +13,7 @@ class massTest extends TestCase
         $unit1 = 'kg';
         $unit2 = 'grams';
         $quantity = 150;
-        $expectedResult = 150001;
+        $expectedResult = 150000;
         $result = $convertor->convert($unit1, $unit2, $quantity);
         $this->assertEquals($expectedResult, $result);
         $this->assertIsFloat($result);
