@@ -15,11 +15,20 @@ header {
 }
 
 main {
-    margin: 4rem;
+    padding: 4rem;
+    height: calc(100vh - 101px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
 }
 
 input {
@@ -27,43 +36,30 @@ input {
     border-radius: 10px;
 }
 
-/* --- Temperature convertor --- */
+button {
+    width: 6rem;
+    height: 3rem;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+}
 
-
-
-/* --- Temperature convertor --- */
-
-
-
-
-
-/* --- Speed convertor --- */
-
-.speed {
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.sec,
-.knots {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+button:hover,
+input:hover {
+    opacity: 0.7;
+    transition: 0.3s;
 }
 
-.knots {
-    margin-top: 4rem
+span,
+button {
+    margin-top: 4rem;
 }
-
-/* --- Speed convertor --- */
-
-
-
-
-
-/* --- Mass convertor --- */
-
-
-
-/* --- Mass convertor --- */

@@ -1,5 +1,7 @@
 <?php include_once 'massConvertor.php';?>
+<?php include_once 'speedConvertor.php';?>
 <?php include_once 'temperatureConvertor.php';?>
+
 <form method='POST'>
   <fieldset>
     <legend>Select the unit of measure to convert</legend>
@@ -77,36 +79,38 @@
 
 <?php
 $unitNames = [
-  'kg' => 'kilograms',
-  'grams' => 'grams',
-  'lb' => 'pounds',
-  'kelvin' => 'kelvin',
-  'celsius' => 'celsius',
-  'fahrenheit' => 'fahrenheit',
-  'kph' => 'kilometers per hour',
-  'mps' => 'meters per second',
-  'knots' => 'knots',
+    'kg' => 'kilograms',
+    'grams' => 'grams',
+    'lb' => 'pounds',
+    'kelvin' => 'kelvin',
+    'celsius' => 'celsius',
+    'fahrenheit' => 'fahrenheit',
+    'kph' => 'kilometers per hour',
+    'mps' => 'meters per second',
+    'knots' => 'knots',
 ];
 
-$units = isset($_POST['unit1'], $_POST['unit2'], $_POST['quantity']) ? [$_POST['unit1'], $_POST['unit2'], (float)$_POST['quantity']] : [];
+$units = isset($_POST['unit1'], $_POST['unit2'], $_POST['quantity']) ? [$_POST['unit1'], $_POST['unit2'], (float) $_POST['quantity']] : [];
 
 if (count($units) === 3) {
-  list($unit1, $unit2, $quantity) = $units;
- 
-  if (in_array($unit1, ['kg', 'grams', 'lb'])) {
-    $equals = (new massConvertor())->convert($unit1, $unit2, $quantity);
-  } elseif (in_array($unit1,['celsius', 'fahrenheit', 'kelvin'])) {
-    $equals = (new temperatureConvertor())->convert($unit1, $unit2, $quantity);
-    
-  }
-   /* add code for other converters. */
-  ;
+    list($unit1, $unit2, $quantity) = $units;
 
-  $formatted_quantity = floor($quantity) == $quantity ? number_format($quantity) : number_format($quantity, 2, '.', ',');
+    if (in_array($unit1, ['kg', 'grams', 'lb'])) {
+        $equals = (new massConvertor())->convert($unit1, $unit2, $quantity);
+    } elseif (in_array($unit1, ['kph', 'mps', 'knots'])) {
+        $equals = (new speedConvertor())->convert($unit1, $unit2, $quantity);
 
-  $formatted_equals = floor($equals) == $equals ? number_format($equals) : number_format($equals, 2, '.', ',');
+    } elseif (in_array($unit1, ['celsius', 'fahrenheit', 'kelvin'])) {
+        $equals = (new temperatureConvertor())->convert($unit1, $unit2, $quantity);
 
-  echo "<span>{$formatted_quantity} {$unitNames[$unit1]} equals to {$formatted_equals} {$unitNames[$unit2]}</span>";
+    }
+    ;
+
+    $formatted_quantity = floor($quantity) == $quantity ? number_format($quantity) : number_format($quantity, 2, '.', ',');
+
+    $formatted_equals = floor($equals) == $equals ? number_format($equals) : number_format($equals, 2, '.', ',');
+
+    echo "<span>{$formatted_quantity} {$unitNames[$unit1]} equals to {$formatted_equals} {$unitNames[$unit2]}</span>";
 }
 
 ?>

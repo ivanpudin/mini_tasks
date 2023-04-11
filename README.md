@@ -16,7 +16,7 @@ docker-compose up
 
 Run the docker and do your work
 
-Everything can be found at **localhost:7000**
+Everything can be found at **localhost:7001**
 
 After you are done: git add, commit, push from a branch that you are working on
 
