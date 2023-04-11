@@ -12,7 +12,6 @@ The basic assumption is such that you will have to deploy it in live PHP server 
 2. Create a new php file for backend e.g. webform.php
 3. You may simply rename the webform.html to webform.php as well
 4. Use GET or POST method to capture form data
-5. To see the form locally you can visit: http://localhost:8005/contact-form/webform.html
 
 ## License
 
