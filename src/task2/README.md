@@ -15,4 +15,4 @@ The basic assumption is such that you will have to deploy it in live PHP server 
 
 ## License
 
-This project is licensed under the MIT License...
+This project is licensed under the MIT License
