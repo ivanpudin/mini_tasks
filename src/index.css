@@ -4,8 +4,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    transition: all 0.3s;
     font-family: 'Raleway', sans-serif;
+    transition: all 0.3s linear; /* vendorless fallback */
+    -o-transition: all 0.3s; /* opera */
+    -ms-transition: all 0.3s; /* IE 10 */
+    -moz-transition: all 0.3s; /* Firefox */
+    -webkit-transition: all 0.3s; /*safari and chrome */
 }
 
 body {

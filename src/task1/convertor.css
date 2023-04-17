@@ -5,7 +5,18 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    transition: all 0.3s;
+    transition: all 0.3s linear; /* vendorless fallback */
+    -o-transition: all 0.3s; /* opera */
+    -ms-transition: all 0.3s; /* IE 10 */
+    -moz-transition: all 0.3s; /* Firefox */
+    -webkit-transition: all 0.3s; /*safari and chrome */
+}
+
+body {
+    background: url('../content/placeholder1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
 }
 
 header {
@@ -25,29 +36,42 @@ header a {
 
 header a:hover {
     opacity: 0.7;
+    transition: 0.3s;
 }
 
 main {
     padding: 4rem;
-    height: calc(100vh - 101px);
+    height: calc(100vh - 101.5px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-fieldset {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+form {
+    height: 26rem;
 }
 
-input {
-    height: 1.2rem;
+form,
+span {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 10px;
+}
+
+fieldset {
+    margin: 2rem;
+    height: 15rem;
+    border: none;
+}
+
+input,
+select {
+    height: 2rem;
+    width: 15rem;
     border: 0.9px solid black;
     border-radius: 10px;
+    margin-left: calc((269.51px - 240px) / 2);
 }
 
 button {
@@ -64,15 +88,24 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 button:hover,
-input:hover {
+input:hover,
+select:hover {
     opacity: 0.7;
+    transition: 0.3s;
 }
 
-span,
-button {
-    margin-top: 4rem;
+span {
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+legend,
+input,
+select {
+    margin-top: 1rem;
+    text-align: center;
 }
