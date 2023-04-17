@@ -1,0 +1,60 @@
+.table_row {
+  width: calc(100% / 4);
+}
+
+.table_header {
+  background-color: lavender;
+  border: black 1px solid;
+  height: 50px;
+}
+
+tr:nth-child(odd) {
+  background-color: #e9e8e8;
+}
+
+tr:hover {
+  background-color: rgb(191, 191, 191);
+}
+
+fieldset {
+  width: 400px;
+}
+
+.create_task {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 7fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+label,
+.button_form {
+  margin: 0 0.5rem;
+}
+
+.button_form {
+  grid-column: span 2;
+  justify-self: center;
+}
+
+.create_task label {
+  text-align: right;
+}
+
+.create_task select {
+  width: 100%;
+}
+
+.login {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 7fr;
+  grid-gap: 10px;
+}
+
+.close {
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  grid-template-columns: 1fr 7fr;
+  grid-gap: 10px;
+}
