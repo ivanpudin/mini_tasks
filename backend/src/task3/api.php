@@ -3,7 +3,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
 
-
 $host = 'db';
 $port = 7008;
 $user = 'root';

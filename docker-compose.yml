@@ -3,12 +3,12 @@ services:
   php-apache-environment:
     container_name: Apache
     build:
-      context: ./phpDir
-      dockerfile: Dockerfile
+      context: ./
+      dockerfile: dockerfile
     depends_on:
       - db
     volumes:
-      - ./src:/var/www/html/
+      - ./backend/src:/var/www/html/
     ports:
       - 7001:80
   db:
