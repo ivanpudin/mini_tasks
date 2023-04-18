@@ -19,5 +19,9 @@
         "allow-plugins": {
             "phpro/grumphp": true
         }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "doctrine/dbal": "^3.6"
     }
 }
