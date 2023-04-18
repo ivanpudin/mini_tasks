@@ -118,3 +118,20 @@ export const closeTask = async (id, comment) => {
 
   return await response.json()
 }
+
+export const convertor = async (unit1, unit2, quantity) => {
+  const response = await fetch('http://localhost:7001/task1/measurement-api.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ unit1, unit2, quantity })
+  })
+
+  if (response.status === 401) {
+    throw new Error('Wrong email or password')
+  } else if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.message || 'Failed to fetch tasks')
+  }
+
+  return await response.json()
+}

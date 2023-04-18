@@ -5,6 +5,10 @@
     transition: all 0.3s;
 }
 
+.App {
+    background-color: black;
+}
+
 .Todo {
     height: calc(100vh - 83px);
     width: 100vw;

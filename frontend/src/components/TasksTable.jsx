@@ -56,7 +56,7 @@ const TasksTable = ({ user }) => {
             tasks.map((task) => (
               <tr key={task.id}>
                 <td>
-                  <Link to={`/tasks/${task.id}`}>{task.title}</Link>
+                  <Link to={`/todo/tasks/${task.id}`}>{task.title}</Link>
                 </td>
                 <td>{task.description}</td>
                 <td>

@@ -1,10 +1,14 @@
-<?php include_once 'massConvertor.php'; ?>
-<?php include_once 'speedConvertor.php'; ?>
-<?php include_once 'temperatureConvertor.php'; ?>
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
+header("Content-Type: application/json");
+?>
+
+<?php include_once 'massConvertor.php';?>
+<?php include_once 'speedConvertor.php';?>
+<?php include_once 'temperatureConvertor.php';?>
+<?php
 
 $unitNames = [
     'kg' => 'kilograms',
@@ -35,10 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["CONTENT_TYPE"] == 'applica
     ;
     $formatted_quantity = floor($quantity) == $quantity ? number_format($quantity) : number_format($quantity, 2, '.', ',');
     $formatted_equals = floor($equals) == $equals ? number_format($equals) : number_format($equals, 2, '.', ',');
-    header("Content-Type: application/json");
+    http_response_code(200);
     echo json_encode(array("message" => "{$formatted_quantity} {$unitNames[$unit1]} equals to {$formatted_equals} {$unitNames[$unit2]}"));
 } else {
-http_response_code(400);
-header("Content-Type: application/json");
-echo json_encode(array("message" => "something is wrong"));
+    http_response_code(400);
+    echo json_encode(array("message" => "something is wrong"));
 }

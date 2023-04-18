@@ -21,7 +21,7 @@
             <h1>Contact us</h1>
         </div>
     </a>
-    <a href="https:/localhost:3000/login/">
+    <a href="http:/localhost:3000/login/">
         <div class="container">
             <img src="./assets/content/placeholder3.jpg" alt="placeholder image">
             <h1>To do</h1>

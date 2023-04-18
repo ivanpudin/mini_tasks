@@ -28,7 +28,7 @@ const Login = () => {
         firstname: res.firstname,
         lastname: res.lastname
       })
-      navigate('/tasks')
+      navigate('/todo/tasks')
     } catch (error) {
       if (error.message === 'Wrong email or password') {
         setError(error.message)

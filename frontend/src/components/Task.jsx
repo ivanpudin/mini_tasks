@@ -25,7 +25,7 @@ const Task = () => {
     try {
       await closeTask(taskData.id, comment)
 
-      navigate('/tasks')
+      navigate('/todo/tasks')
     } catch (error) {
       if (error.message) {
         setError(error.message)
