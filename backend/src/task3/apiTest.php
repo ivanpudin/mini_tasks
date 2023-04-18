@@ -15,7 +15,7 @@ $host = 'db';
 $port = 7008;
 $user = 'root';
 $pass = 'lionPass';
-$dbname = 'ApiDB';
+$dbname = 'ApiDBTest';
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 if ($conn->connect_error) {
