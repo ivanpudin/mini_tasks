@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.Todo {
+    height: calc(100vh - 83px);
+    width: 100vw;
+    background: url('../content/placeholder3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.area {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.area .date_form {
+    margin-bottom: 2rem;
+}
+
+.area .date_form button {
+    margin-left: 1rem;
+}
+
+.area h2 {
+    margin-bottom: 2rem;
+}
+
+.area button {
+    color: white;
+    background-color: black;
+    padding: 0.5rem;
+}
+
+.area .comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    line-height: 1rem;
+}
+
+td a {
+    color: black;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+}
+
+input,
+select {
+    min-height: 1.5rem;
+    border: 0.9px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+input:hover,
+button:hover,
+select:hover {
+    opacity: 0.7;
+}
+
+a:hover,
+.active {
+    opacity: 0.5;
+}

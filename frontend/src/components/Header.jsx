@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import { UserContext } from './context'
+import { UserContext } from '../context'
+import '../assets/css/Header.css'
 
 const Header = ({ logout }) => {
   const [userState, setUserState] = useContext(UserContext)
@@ -21,7 +22,7 @@ const Header = ({ logout }) => {
         </ul>
       </nav>
       {userState.id && (
-        <div>
+        <div className='logout'>
           <p>
             Welcome, {userState.firstname} {userState.lastname}
           </p>

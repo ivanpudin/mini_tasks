@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { getTask, closeTask } from './api'
+import { getTask, closeTask } from '../api'
 import { useParams, useNavigate } from 'react-router-dom'
-import classes from './table.module.css'
+import classes from '../assets/css/table.module.css'
 
 const Task = () => {
   const [taskData, setTaskData] = useState({})
@@ -36,7 +36,7 @@ const Task = () => {
   }
 
   return (
-    <div>
+    <div className='area'>
       <table>
         <thead>
           <tr>
@@ -67,8 +67,8 @@ const Task = () => {
       </table>
       {localStorage.getItem('userFirstName') === taskData.firstname &&
         localStorage.getItem('userLastName') === taskData.lastname && (
-          <fieldset>
-            <legend>Close task</legend>
+          <div className='comments'>
+            <h2>Close task</h2>
             <form className={classes.close} onSubmit={handleSubmit}>
               <label for="comment">Comment:</label>
               <input
@@ -79,7 +79,7 @@ const Task = () => {
               />
               <button className={classes.button_form}>Close task</button>
             </form>
-          </fieldset>
+          </div>
         )}
     </div>
   )

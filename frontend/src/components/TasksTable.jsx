@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { getTasks } from './api'
+import { getTasks } from '../api'
 import { Link } from 'react-router-dom'
-import classes from './table.module.css'
+import classes from '../assets/css/table.module.css'
 
 const TasksTable = ({ user }) => {
   const [tasks, setTasks] = useState([])
@@ -24,9 +24,9 @@ const TasksTable = ({ user }) => {
   }
 
   return (
-    <div>
-      <legend>Date filter</legend>
-      <form>
+    <div className='area'>
+      <h2>Filter date</h2>
+      <form className='date_form'>
         <label>
           <input type="date" name="date" onChange={onChangeInput} />
           <button type="button" onClick={onClearDate}>

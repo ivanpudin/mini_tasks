@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { getUsers, createTask } from './api'
+import { getUsers, createTask } from '../api'
 import { useNavigate } from 'react-router-dom'
-import classes from './table.module.css'
+import classes from '../assets/css/table.module.css'
 
 const CreateTask = () => {
   const [taskData, setTaskData] = useState({})
@@ -39,9 +39,8 @@ const CreateTask = () => {
   }
 
   return (
-    <>
-      <fieldset>
-        <legend>Create task</legend>
+    <div className='area'>
+        <h2>Create task</h2>
         <form className={classes.create_task} onSubmit={handleSubmit}>
           <label for="title">Title:</label>
           <input
@@ -78,8 +77,7 @@ const CreateTask = () => {
           </select>
           <button className={classes.button_form}>Create task</button>
         </form>
-      </fieldset>
-    </>
+    </div>
   )
 }
 

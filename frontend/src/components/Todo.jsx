@@ -1,6 +1,6 @@
-import './App.css'
+import '../assets/css/App.css'
 import { useState, useEffect } from 'react'
-import { UserContext } from './context'
+import { UserContext } from '../context'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Login from './Login'
 import TasksTable from './TasksTable'
@@ -8,7 +8,7 @@ import Header from './Header'
 import CreateTask from './CreateTask'
 import Task from './Task'
 
-function App() {
+function Todo() {
   const [userState, setUserState] = useState({})
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={[userState, setUserState]}>
         <Header logout={handleLogout} />
-        <div className="App">
+        <div className="Todo">
           <Routes>
             <Route path="/login/" element={<Login />} />
             <Route
@@ -82,4 +82,4 @@ function App() {
   )
 }
 
-export default App
+export default Todo

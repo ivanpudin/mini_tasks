@@ -3,8 +3,9 @@
 }
 
 .table_header {
-  background-color: lavender;
-  border: black 1px solid;
+  color: white;
+  background-color: black;
+  border: none;
   height: 50px;
 }
 

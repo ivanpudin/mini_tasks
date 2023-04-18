@@ -1,22 +1,19 @@
 <?php
 include 'connect.php';
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-
-    $name= $_POST['name'];
-    $email= $_POST['email'];
-    $subject= $_POST['subject'];
-    $message= $_POST['message'];
-    $q= "INSERT INTO `contact`(`name`, `email`,`subject`, `message`) VALUES ('$name', '$email', '$subject', '$message')";
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+    $q = "INSERT INTO `contact`(`name`, `email`,`subject`, `message`) VALUES ('$name', '$email', '$subject', '$message')";
 
     $query = mysqli_query($conn, $q);
 
-
-     if($query){
+    if ($query) {
         echo "<script>alert('Thank you for contacting us');</script>";
-     }
- 
+    }
 
 }
 ?>
@@ -28,7 +25,7 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="webform.css" media="all">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="main.js"></script>
 </head>
 
@@ -61,4 +58,4 @@ if(isset($_POST['submit'])){
 
 </html>
 
-<style><?php include 'webform.css'?></style>
+<style><?php include '../assets/css/webform.css'?></style>

@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { UserContext } from './context'
-import { loginUser } from './api'
+import { UserContext } from '../context'
+import { loginUser } from '../api'
 import { useNavigate } from 'react-router-dom'
 import md5 from 'md5'
-import classes from './table.module.css'
+import classes from '../assets/css/table.module.css'
+import '../assets/css/Login.css'
 
 const Login = () => {
   const [userData, setUserData] = useState({})
@@ -38,9 +39,8 @@ const Login = () => {
   }
 
   return (
-    <>
-      <fieldset>
-        <legend>Login</legend>
+    <div className='Login'>
+        <h2>Login</h2>
         <form className={classes.login} onSubmit={handleSubmit}>
           <label for="email">Email:</label>
           <input type="email" name="email" onChange={onChangeInput} required />
@@ -54,8 +54,7 @@ const Login = () => {
           <button className={classes.button_form}>Login</button>
           {error && <div>{error}</div>}
         </form>
-      </fieldset>
-    </>
+    </div>
   )
 }
 

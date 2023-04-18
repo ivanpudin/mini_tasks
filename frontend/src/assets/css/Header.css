@@ -1,0 +1,24 @@
+header {
+    padding: 2rem;
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    margin: 0 1rem 0 1rem;
+}
+
+.logout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logout button {
+    margin-left: 1rem;
+    padding: 0.5rem;
+}
