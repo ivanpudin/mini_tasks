@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useContext  } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context'
 import '../assets/css/Header.css'
 
 const Header = (props) => {
   const [userState, setUserState] = useContext(UserContext)
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -37,6 +38,11 @@ const Header = (props) => {
               Welcome, {userState.firstname} {userState.lastname}
             </p>
             <button onClick={props.logout}>Logout</button>
+          </div>
+        )}
+        {!userState.id && (
+          <div className='logout'>
+            <button onClick={navigate("/todo/create_user")}>Create user</button>
           </div>
         )}
       </header>}
