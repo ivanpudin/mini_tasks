@@ -10,17 +10,43 @@
     justify-content: center;
 }
 
-.Convertor form,
 .Convertor span {
     background-color: rgba(255, 255, 255, 0.85);
     border: none;
     border-radius: 10px;
+    padding: 2rem;
+    width: 333.51px;
+    text-align: center;
 }
 
 .Convertor form {
-    height: 26rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.Convertor input,
+.Convertor select {
+    width: 10rem;
+}
+
+.Convertor button {
+    padding: 1rem;
+    font-size: 20px;
+}
+
+.Convertor input,
+.Convertor select,
+.Convertor legend {
+    margin-top: 1rem;
+}
+
+.Convertor button {
+    font-size: 13.333px;
+    margin-top: 3rem;
+    height: 2.5rem;
+    width: 5rem;
+    color: white;
+    background-color: black;
 }

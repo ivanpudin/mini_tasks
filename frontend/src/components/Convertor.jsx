@@ -58,8 +58,9 @@ const Convertor = () => {
 
   return (
     <div className='Convertor'>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
+      <div className='area'>
+        <h2>Convert values</h2>
+        <form onSubmit={handleSubmit}>
           <legend>Select the unit of measure to convert</legend>
           <select name='unit1' onChange={onChangeInput} required>
             <optgroup label='Mass'>
@@ -82,16 +83,15 @@ const Convertor = () => {
           <input type='number' step="0.01" id='quantity' name='quantity' onChange={onChangeInput}  required/>
           <legend>Select the unit of measure to convert</legend>
           <select name='unit2' onChange={onChangeInput} required >
-            <option disabled selected>Select value</option>
             {type.map(item => {
             if (item.short !== convertResult.unit1) {
               return (<option key={item.short} value={item.short}>{item.full}</option>)
             }
             })}
           </select>
-        </fieldset>
-        <button type='submit'>Submit</button>
-      </form>
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
       {result && <span>{result}</span>}
     </div>
   )

@@ -9,11 +9,23 @@ import CreateTask from './components/CreateTask'
 import Task from './components/Task'
 import Overlay from './components/Overlay'
 import Convertor from './components/Convertor'
+import './assets/css/Todo.css'
+import Contact from './components/Contact'
 
 function App() {
   const [userState, setUserState] = useState({})
 
   const [overlay, setOverlay] = useState(true)
+
+  const [header, setHeader] = useState(true)
+
+  const handleHeader12 = () => {
+    setHeader(current => true)
+  }
+
+  const handleHeader3 = () => {
+    setHeader(current => false)
+  }
 
   const handleOverlay = () => {
     setOverlay(current => !current)
@@ -50,18 +62,32 @@ function App() {
         <div className="App">
           <Overlay
           handleOverlay={handleOverlay}
-          overlay={overlay} />
+          overlay={overlay}
+          handleHeader12={handleHeader12}
+          handleHeader3={handleHeader3} />
           <Routes>
             <Route exact path='/convertor' element={
-              <div>
-                <Header />
+              <div className='element_container'>
+                <Header
+                handleOverlay={handleOverlay}
+                headerState={header} />
                 <Convertor />
               </div>
             }/>
-            <Route exact path='/contact' />
+            <Route exact path='/contact' element={
+              <div className='element_container'>
+                <Header
+                handleOverlay={handleOverlay}
+                headerState={header} />
+                <Contact />
+              </div>
+            } />
             <Route exact path="/todo/" element={
               <div className='element_container'>
-                <Header logout={handleLogout} />
+                <Header
+                handleOverlay={handleOverlay}
+                headerState={header} 
+                logout={handleLogout} />
                 <div className='Todo'>
                   <Login />
                 </div>
@@ -71,7 +97,10 @@ function App() {
               path="/todo/tasks"
               element={
                 <div className='element_container'>
-                  <Header logout={handleLogout} />
+                  <Header
+                  handleOverlay={handleOverlay}
+                  headerState={header}
+                  logout={handleLogout} />
                   <div className='Todo'>
                     <ProtectedRoute userState={localStorage.getItem('userId')}>
                       <TasksTable />
@@ -84,7 +113,10 @@ function App() {
               path="/todo/your-tasks/"
               element={
                 <div className='element_container'>
-                  <Header logout={handleLogout} />
+                  <Header
+                  handleOverlay={handleOverlay}
+                  headerState={header}
+                  logout={handleLogout} />
                   <div className='Todo'>
                     <ProtectedRoute userState={localStorage.getItem('userId')}>
                       <TasksTable user={userState.id} />
@@ -97,7 +129,10 @@ function App() {
               path="/todo/create-task/"
               element={
                 <div className='element_container'>
-                  <Header logout={handleLogout} />
+                  <Header
+                  handleOverlay={handleOverlay}
+                  headerState={header}
+                  logout={handleLogout} />
                   <div className='Todo'>
                     <ProtectedRoute userState={localStorage.getItem('userId')}>
                       <CreateTask />
@@ -110,7 +145,10 @@ function App() {
               path="/todo/tasks/:task_id"
               element={
                 <div className='element_container'>
-                  <Header logout={handleLogout} />
+                  <Header
+                  handleOverlay={handleOverlay}
+                  headerState={header}
+                  logout={handleLogout} />
                   <div className='Todo'>
                     <ProtectedRoute userState={localStorage.getItem('userId')}>
                       <Task />

@@ -1,0 +1,102 @@
+.Overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.Overlay a,
+.container {
+    height: 100vh;
+    width: 33.4vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.container img {
+    height: 100vh;
+    object-fit: cover;
+    filter: blur(5px);
+    transform: scale(1.1);
+}
+
+.container h1 {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: black;
+}
+
+.container img:hover {
+    filter: blur(0);
+    transform: scale(1.2);
+}
+
+.overlay_out {
+    visibility: hidden;
+}
+
+.tile1_out {
+    animation: tile1_moveout 1s ease-in;
+    z-index: 1;
+}
+
+.tile2_out {
+    animation: tile2_moveout 1.5s ease-in;
+    z-index: 2;
+}
+
+.tile3_out {
+    animation: tile3_moveout 2s ease-in;
+    z-index: 3;
+}
+
+.overlay_in {
+    visibility: visible;
+}
+
+.tile1_in {
+    animation: tile1_movein 2s ease-out;
+    z-index: 1;
+}
+
+.tile2_in {
+    animation: tile2_movein 1.5s ease-out;
+    z-index: 2;
+}
+
+.tile3_in {
+    animation: tile3_movein 1s ease-out;
+    z-index: 3;
+}
+
+@keyframes tile1_moveout {
+    0%   {left:0%}
+    100% {left:200%; visibility: hidden;}
+}
+
+@keyframes tile2_moveout {
+    0%   {left:0%}
+    100% {left:200%; visibility: hidden;}
+}
+
+@keyframes tile3_moveout {
+    0%   {left:0%}
+    100% {left:200%; visibility: hidden;}
+}
+
+@keyframes tile1_movein {
+    0%   {left:200%; visibility: visible;}
+    100% {left:0%}
+}
+
+@keyframes tile2_movein {
+    0%   {left:200%; visibility: visible;}
+    100% {left:0%}
+}
+
+@keyframes tile3_movein {
+    0%   {left:200%; visibility: visible;}
+    100% {left:0%}
+}

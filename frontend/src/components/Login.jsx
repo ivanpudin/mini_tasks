@@ -40,6 +40,7 @@ const Login = () => {
 
   return (
     <div className='Login'>
+      <div className='area'>
         <h2>Login</h2>
         <form className={classes.login} onSubmit={handleSubmit}>
           <label for="email">Email:</label>
@@ -54,6 +55,7 @@ const Login = () => {
           <button className={classes.button_form}>Login</button>
           {error && <div>{error}</div>}
         </form>
+      </div>
     </div>
   )
 }
