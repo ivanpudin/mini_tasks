@@ -1,15 +1,15 @@
-<?php 
+<?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
 ?>
-<?php include_once 'credentailsCheckAPI.php';?>
-<?php include_once 'getAllUsersAPI.php';?>
-<?php include_once 'getAllUnfinishedTasksAPI.php';?>
-<?php include_once 'createTaskAPI.php';?>
-<?php include_once 'closeTaskAPI.php';?>
+<?php include_once 'credentailsCheckAPI.php'; ?>
+<?php include_once 'getAllUsersAPI.php'; ?>
+<?php include_once 'getAllUnfinishedTasksAPI.php'; ?>
+<?php include_once 'createTaskAPI.php'; ?>
+<?php include_once 'closeTaskAPI.php'; ?>
+<?php include_once 'createUserAPI.php'; ?>
 <?php
-
 
 $host = 'db';
 $port = 7008;
@@ -23,9 +23,16 @@ if ($conn->connect_error) {
 }
 
 /* USERS SECTION */
-// credentials check
+// credentials check and user create
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["CONTENT_TYPE"] == 'application/json') {
- (new credentailsAPI())->checkCredentails($conn);
+ $content = file_get_contents("php://input");
+ $data = json_decode($content, true);
+ $action = htmlspecialchars($data["action"]);
+ if ($action == 'get_user') {
+  (new credentailsAPI())->checkCredentails($conn, $data);
+ } elseif ($action == 'create_user') {
+  (new createUserAPI())->createUser($conn, $data);
+ }
 }
 ;
 
@@ -42,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_GET["action"] == "get_tasks" && !is
 
 //get all unfinished tasks of user
 if ($_SERVER["REQUEST_METHOD"] == "GET" && $_GET["action"] == "get_tasks" && isset($_GET["user"]) && !isset($_GET["deadline"])) {
- 
+
  (new unfinishedTasksAPI())->getAllUnfinishedTasksOfUser($conn);
 }
 
@@ -63,10 +70,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_GET["action"] == "get_tasks" && iss
 
 //create task
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["CONTENT_TYPE"] == 'application/json') {
- (new createTaskAPI())->createTask($conn);
+ $content = file_get_contents("php://input");
+ $data = json_decode($content, true);
+ $action = htmlspecialchars($data["action"]);
+ if ($action == 'create_task') {
+  (new createTaskAPI())->createTask($conn, $data);
+ }
 }
-
 //close task
 if ($_SERVER["REQUEST_METHOD"] == "PUT" && $_SERVER["CONTENT_TYPE"] == 'application/json') {
- (new closeTaskAPI())->closeTask($conn);
+  $content = file_get_contents("php://input");
+  $data = json_decode($content, true);
+  $action = htmlspecialchars($data["action"]);
+  if ($action == 'close_task') {
+ (new closeTaskAPI())->closeTask($conn, $data);
+  }
 }

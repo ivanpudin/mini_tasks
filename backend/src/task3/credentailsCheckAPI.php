@@ -3,12 +3,8 @@
 
 class credentailsAPI
 {
- public function checkCredentails($conn)
+ public function checkCredentails($conn, $data)
  {
-  $content = file_get_contents("php://input");
-  $data = json_decode($content, true);
-  $action = htmlspecialchars($data["action"]);
-  if ($action == 'get_user') {
    $email = htmlspecialchars($data["email"]);
    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
@@ -35,8 +31,8 @@ class credentailsAPI
      header("Content-Type: application/json");
      $response["success"] = false;
      $response["message"] = "Error: " . $stmt->error;
+     echo json_encode($response);
     }
    }
   }
  }
-}
