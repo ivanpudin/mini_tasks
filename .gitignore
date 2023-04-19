@@ -1,6 +1,7 @@
 .vscode
 
 vendor/
+backend/.DS_Store
 backend/vendor/
 backend/.phpunit.result.cache
 
