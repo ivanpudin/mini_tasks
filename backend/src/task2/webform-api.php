@@ -8,42 +8,33 @@ header("Content-Type: application/json");
 <?php
 include 'connect.php';
 
-if (isset($_POST['submit'])) {
-
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
-    $q = "INSERT INTO `contact`(`name`, `email`,`subject`, `message`) VALUES ('$name', '$email', '$subject', '$message')";
-
-    $query = mysqli_query($conn, $q);
-
-    if ($query) {
-        echo "<script>alert('Thank you for contacting us');</script>";
-    }
-
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["CONTENT_TYPE"] == 'application/json') {
     $content = file_get_contents("php://input");
     $data = json_decode($content, true);
     $name = htmlspecialchars($data["name"]);
-    $email = htmlspecialchars($data["email"]);
-    $subject = htmlspecialchars($subject["subject"]);
+    $subject = htmlspecialchars($data["subject"]);
     $message = htmlspecialchars($data["message"]);
-    $q = "INSERT INTO `contact`(`name`, `email`,`subject`, `message`) VALUES ('$name', '$email', '$subject', '$message')";
-
-    $query = mysqli_query($conn, $q);
+    $email = htmlspecialchars($data["email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        http_response_code(400);
+        echo json_encode(array("message" => "Invalid email format."));
+    } else {
+        if (!mb_strlen($name) || !mb_strlen($subject) || !mb_strlen($message)) {
+            http_response_code(400);
+            echo json_encode(array("message" => "Name, subject or message cannot ne empty."));
+        } else {
+          $stmt = $conn->prepare("INSERT INTO `contact` (`name`, `email`, `subject`, `message`) VALUES (?, ?, ?, ?)");
+          $stmt->bind_param("ssss", $name, $email, $subject, $message);
+          if ($stmt->execute()) {
+           http_response_code(201);
+           $response["message"] = "Contact form has been submitted successfully.";
+           echo json_encode($response);
+          } else {
+           http_response_code(500);
+           $response["message"] = "Error: " . $stmt->error;
+           echo json_encode($response);
+        }
+    }
 }
-if ($query) {
-    http_response_code(201);
-    header("Content-Type: application/json");
-    $response["success"] = true;
-    $response["message"] = "Contact form has been created successfully.";
-} else {
-    http_response_code(500);
-    header("Content-Type: application/json");
-    $response["success"] = false;
-    $response["message"] = "Error";
 }
 ?>

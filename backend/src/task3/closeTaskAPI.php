@@ -3,12 +3,8 @@
 
 class closeTaskAPI
 {
- public function closeTask($conn)
+ public function closeTask($conn, $data)
  {
-  $content = file_get_contents("php://input");
-  $data = json_decode($content, true);
-  $action = htmlspecialchars($data["action"]);
-  if ($action == 'close_task') {
    $comment = htmlspecialchars($data["comment"]);
    $status = ($data["status"]);
    $closing_date = htmlspecialchars($data["closing_date"]);
@@ -41,5 +37,4 @@ class closeTaskAPI
     echo json_encode($response);
    }
   }
- }
 }
