@@ -14,10 +14,10 @@ const Header = ({ logout }) => {
             <NavLink to="/todo/tasks/">All tasks</NavLink>
           </li>
           <li>
-            <NavLink to="/todo/your-tasks/">Your tasks</NavLink>
+            <NavLink to="/todo/your-tasks/">Your</NavLink>
           </li>
           <li>
-            <NavLink to="/todo/create-task/">Create task</NavLink>
+            <NavLink to="/todo/create-task/">Create</NavLink>
           </li>
         </ul>
       </nav>

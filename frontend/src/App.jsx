@@ -7,11 +7,17 @@ import TasksTable from './components/TasksTable'
 import Header from './components/Header'
 import CreateTask from './components/CreateTask'
 import Task from './components/Task'
-import Home from './components/Home'
+import Overlay from './components/Overlay'
 import Convertor from './components/Convertor'
 
-function Todo() {
+function App() {
   const [userState, setUserState] = useState({})
+
+  const [overlay, setOverlay] = useState(true)
+
+  const handleOverlay = () => {
+    setOverlay(current => !current)
+  }
 
   useEffect(() => {
     const id = localStorage.getItem('userId')
@@ -41,43 +47,76 @@ function Todo() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={[userState, setUserState]}>
-        <Header logout={handleLogout} />
-        <div className="Todo">
+        <div className="App">
+          <Overlay
+          handleOverlay={handleOverlay}
+          overlay={overlay} />
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/convertor' element={<Convertor />}/>
-            <Route path='/contact' />
-            <Route path="/todo/" element={<Login />} />
+            <Route exact path='/convertor' element={
+              <div>
+                <Header />
+                <Convertor />
+              </div>
+            }/>
+            <Route exact path='/contact' />
+            <Route exact path="/todo/" element={
+              <div className='element_container'>
+                <Header logout={handleLogout} />
+                <div className='Todo'>
+                  <Login />
+                </div>
+              </div>
+            } />
             <Route
               path="/todo/tasks"
               element={
-                <ProtectedRoute userState={localStorage.getItem('userId')}>
-                  <TasksTable />
-                </ProtectedRoute>
+                <div className='element_container'>
+                  <Header logout={handleLogout} />
+                  <div className='Todo'>
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <TasksTable />
+                    </ProtectedRoute>
+                  </div>
+                </div>
               }
             />
             <Route
               path="/todo/your-tasks/"
               element={
-                <ProtectedRoute userState={localStorage.getItem('userId')}>
-                  <TasksTable user={userState.id} />
-                </ProtectedRoute>
+                <div className='element_container'>
+                  <Header logout={handleLogout} />
+                  <div className='Todo'>
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <TasksTable user={userState.id} />
+                    </ProtectedRoute>
+                  </div>
+                </div>
               }
             />
             <Route
               path="/todo/create-task/"
               element={
-                <ProtectedRoute userState={localStorage.getItem('userId')}>
-                  <CreateTask />
-                </ProtectedRoute>
+                <div className='element_container'>
+                  <Header logout={handleLogout} />
+                  <div className='Todo'>
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <CreateTask />
+                    </ProtectedRoute>
+                  </div>
+                </div>
               }
             />
             <Route
               path="/todo/tasks/:task_id"
               element={
-                <ProtectedRoute userState={localStorage.getItem('userId')}>
-                  <Task />
-                </ProtectedRoute>
+                <div className='element_container'>
+                  <Header logout={handleLogout} />
+                  <div className='Todo'>
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <Task />
+                    </ProtectedRoute>
+                  </div>
+                </div>
               }
             />
           </Routes>
@@ -87,4 +126,4 @@ function Todo() {
   )
 }
 
-export default Todo
+export default App

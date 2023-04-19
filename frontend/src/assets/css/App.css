@@ -1,16 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    transition: all 0.3s;
+    font-family: 'Raleway', sans-serif;
+    transition: all 0.3s linear; /* vendorless fallback */
+    -o-transition: all 0.3s; /* opera */
+    -ms-transition: all 0.3s; /* IE 10 */
+    -moz-transition: all 0.3s; /* Firefox */
+    -webkit-transition: all 0.3s; /*safari and chrome */
 }
 
 .App {
-    background-color: black;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+}
+
+.Overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.Overlay a,
+.container {
+    height: 100vh;
+    width: 33.4vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.container img {
+    height: 100vh;
+    object-fit: cover;
+    filter: blur(5px);
+    transform: scale(1.1);
+}
+
+.container h1 {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: black;
+}
+
+.container img:hover {
+    filter: blur(0);
+    transform: scale(1.2);
+}
+
+.overlay_out {
+    visibility: hidden;
+}
+
+.tile1_out {
+    animation: tile1_moveout 1s ease-in;
+}
+
+.tile2_out {
+    animation: tile2_moveout 1s ease-in;
+}
+
+.tile3_out {
+    animation: tile3_moveout 1s ease-in;
+}
+
+.overlay_in {
+    visibility: visible;
+}
+
+.tile1_in {
+    animation: tile1_movein 1s ease-out;
+}
+
+.tile2_in {
+    animation: tile2_movein 1s ease-out;
+}
+
+.tile3_in {
+    animation: tile3_movein 1s ease-out;
 }
 
 .Todo {
-    height: calc(100vh - 83px);
+    height: calc(100vh - 92px);
     width: 100vw;
     background: url('../content/placeholder3.jpg');
     background-repeat: no-repeat;
@@ -97,7 +173,49 @@ select:hover {
     opacity: 0.7;
 }
 
-a:hover,
-.active {
+header a:hover,
+.Todo a:hover,
+header .active,
+.Todo .active {
     opacity: 0.5;
+}
+
+/* @keyframes move_out {
+    0%   {left:0%}
+    100% {left:200%; visibility: hidden;}
+} */
+
+@keyframes tile1_moveout {
+    0%   {left:0%}
+    100% {left:200%; visibility: hidden;}
+}
+
+@keyframes tile2_moveout {
+    0%   {left:33.4%}
+    100% {left:200%; visibility: hidden;}
+}
+
+@keyframes tile3_moveout {
+    0%   {left:66.8%}
+    100% {left:200%; visibility: hidden;}
+}
+
+/* @keyframes move_in {
+    0%   {left:200%; visibility: visible;}
+    100% {left:0%}
+} */
+
+@keyframes tile1_movein {
+    0%   {left:200%; visibility: visible;}
+    100% {left:0%}
+}
+
+@keyframes tile2_movein {
+    0%   {left:200%; visibility: visible;}
+    100% {left:33.4%}
+}
+
+@keyframes tile3_movein {
+    0%   {left:200%; visibility: visible;}
+    100% {left:66.8%}
 }

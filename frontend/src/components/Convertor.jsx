@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { convertor } from '../api'
+import '../assets/css/Convertor.css'
 
 const Convertor = () => {
   const [convertResult, setConvertResult] = useState({})
@@ -81,11 +82,12 @@ const Convertor = () => {
           <input type='number' step="0.01" id='quantity' name='quantity' onChange={onChangeInput}  required/>
           <legend>Select the unit of measure to convert</legend>
           <select name='unit2' onChange={onChangeInput} required >
-          {type.map(item => {
-           if (item.short !== convertResult.unit1) {
-            return (<option key={item.short} value={item.short}>{item.full}</option>)
-          }
-          })}
+            <option disabled selected>Select value</option>
+            {type.map(item => {
+            if (item.short !== convertResult.unit1) {
+              return (<option key={item.short} value={item.short}>{item.full}</option>)
+            }
+            })}
           </select>
         </fieldset>
         <button type='submit'>Submit</button>
