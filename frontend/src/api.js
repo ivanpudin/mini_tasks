@@ -136,3 +136,22 @@ export const convertor = async (unit1, unit2, quantity) => {
 
   return await response.json()
 }
+
+export const createUser = async (firstname, lastname, email, password) => {
+  const action = "create_user"
+  const response = await fetch('http://localhost:7001/task3/api.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action, firstname, lastname, email, password })
+  })
+
+  if (response.status === 400 || response.status === 409) {
+    const error = await response.json()
+    throw new Error(error.message)
+  } else if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.message || 'Failed to fetch tasks')
+  } else if (response.status === 201) {
+    return await response.json()
+  }
+}

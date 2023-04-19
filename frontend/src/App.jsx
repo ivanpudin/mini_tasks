@@ -9,6 +9,7 @@ import CreateTask from './components/CreateTask'
 import Task from './components/Task'
 import Overlay from './components/Overlay'
 import Convertor from './components/Convertor'
+import CreateUser from './components/CreateUser'
 import './assets/css/Todo.css'
 import Contact from './components/Contact'
 
@@ -66,6 +67,7 @@ function App() {
           handleHeader12={handleHeader12}
           handleHeader3={handleHeader3} />
           <Routes>
+            <Route path="/todo/create-user" element={<CreateUser />} />
             <Route exact path='/convertor' element={
               <div className='element_container'>
                 <Header

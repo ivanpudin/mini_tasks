@@ -1,14 +1,12 @@
-import React, { useContext, useState } from 'react'
-import { UserContext } from '../context'
-import { loginUser } from '../api'
+import React, { useState } from 'react'
+import { createUser } from '../api'
 import { useNavigate } from 'react-router-dom'
 import md5 from 'md5'
 import classes from '../assets/css/table.module.css'
 import '../assets/css/Login.css'
 
-const Login = () => {
+const CreateUser = () => {
   const [userData, setUserData] = useState({})
-  const [userState, setUserState] = useContext(UserContext)
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
@@ -22,13 +20,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await loginUser(userData.email, md5(userData.password))
-      setUserState({
-        id: res.id,
-        firstname: res.firstname,
-        lastname: res.lastname
-      })
-      navigate('/todo/tasks')
+      await createUser(userData.firstname, userData.lastname, userData.email, md5(userData.password))
+      navigate('/todo/')
     } catch (error) {
       if (error.message) {
         setError(error.message)
@@ -39,20 +32,24 @@ const Login = () => {
   }
 
   return (
-    <div className='Login'>
+    <div className='Create user'>
       <div className='area'>
         <h2>Login</h2>
         <form className={classes.login} onSubmit={handleSubmit}>
-          <label for="email">Email:</label>
+          <label htmlFor="firstname">Firstname:</label>
+          <input type="text" name="firstname" onChange={onChangeInput} required />
+          <label htmlFor="lastname">Firstname:</label>
+          <input type="text" name="lastname" onChange={onChangeInput} required />
+          <label htmlFor="email">Email:</label>
           <input type="email" name="email" onChange={onChangeInput} required />
-          <label for="password">Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             name="password"
             onChange={onChangeInput}
             required
           />
-          <button className={classes.button_form}>Login</button>
+          <button className={classes.button_form}>Register user</button>
           {error && <div>{error}</div>}
         </form>
       </div>
@@ -60,4 +57,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default CreateUser
