@@ -43,9 +43,10 @@ export const getTasks = async (user = null, deadline = null) => {
   } else if (!response.ok) {
     const error = await response.json()
     throw new Error(error.message || 'Failed to fetch tasks')
+  } else if (response.status === 200) {
+    return await response.json()
   }
 
-  return await response.json()
 }
 
 export const getTask = async (task) => {
