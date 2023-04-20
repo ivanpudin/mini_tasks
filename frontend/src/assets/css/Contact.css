@@ -1,0 +1,11 @@
+.Contact {
+    min-height: calc(100vh - 92px);
+    background: url('../content/placeholder2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

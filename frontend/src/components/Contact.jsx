@@ -2,8 +2,7 @@ import '../assets/css/Contact.css'
 
 const Contact = () => {
     return(
-        <div>
-            i love php
+        <div className='Contact'>
         </div>
     )
 }

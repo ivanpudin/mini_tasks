@@ -11,16 +11,24 @@
     margin-bottom: 2rem;
 }
 
-.Login form {
+.Login form,
+.Create_user form {
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.Login input {
+/* .Create_user form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+} */
+
+.Login input,
+.Create_user input {
     width: 11rem;
-}
+} 
 
 .Login button {
     margin-top: 2rem;
@@ -28,4 +36,8 @@
     width: 5rem;
     color: white;
     background-color: black;
+}
+
+.Create_user button {
+    margin-top: 2rem;
 }

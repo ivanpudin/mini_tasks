@@ -67,7 +67,6 @@ function App() {
           handleHeader12={handleHeader12}
           handleHeader3={handleHeader3} />
           <Routes>
-            <Route path="/todo/create-user" element={<CreateUser />} />
             <Route exact path='/convertor' element={
               <div className='element_container'>
                 <Header
@@ -159,6 +158,21 @@ function App() {
                 </div>
               }
             />
+            <Route
+            path="/todo/create_user"
+            element={
+              <div className='element_container'>
+                <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout} />
+                <div className='Todo'>
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <CreateUser />
+                    </ProtectedRoute>
+                </div>
+              </div>
+            } />
           </Routes>
         </div>
       </UserContext.Provider>
