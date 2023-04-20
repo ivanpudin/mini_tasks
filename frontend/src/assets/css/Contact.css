@@ -13,6 +13,8 @@
 .Contact form {
   padding: 2rem;
   scale: 1.2;
+  gap: 1rem;
+  row-gap: 2rem;
 }
 
 .Contact span {
@@ -33,8 +35,4 @@
 
 .Contact input:focus {
   scale: 1.3;
-}
-
-.Contact button {
-  margin-top: 1rem;
 }

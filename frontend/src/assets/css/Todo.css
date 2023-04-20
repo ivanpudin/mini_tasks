@@ -34,6 +34,13 @@
   margin-bottom: 2rem;
 }
 
+.area input {
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  background-color: transparent;
+}
+
 .area button {
   color: white;
   background-color: black;
@@ -45,4 +52,52 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+td a {
+  color: black;
+}
+
+td {
+  padding: 5px;
+}
+
+.Create_task form {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr 1fr 1fr 1fr;
+  gap: 1rem;
+  row-gap: 2rem;
+}
+
+.Create_user form {
+  padding: 2rem;
+  scale: 1.2;
+  gap: 1rem;
+  row-gap: 2rem;
+}
+
+.Create_user input {
+  width: 10rem;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.Create_user input:focus {
+  scale: 1.3;
+}
+
+.Create_task input:focus {
+  scale: 1.1;
+}
+
+.Create_task input,
+.Create_task select {
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  background-color: transparent;
+  word-break: normal;
 }

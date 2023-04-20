@@ -4,39 +4,34 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-bottom: 4rem;
-}
-
-.Login h2 {
-  margin-bottom: 2rem;
 }
 
 .Login form {
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.Login input,
-.Create_user input {
-  width: 11rem;
+  gap: 2rem;
 }
 
 .Login button {
-  margin-top: 2rem;
-  height: 2.5rem;
-  width: 5rem;
   color: white;
   background-color: black;
 }
 
-.Create_user button {
-  margin-top: 1rem;
+.Login form {
+  padding: 2rem;
+  scale: 1.2;
 }
 
-.Create_user form {
-  padding: 2rem;
-  gap: 1rem;
+.Login input {
+  width: 10rem;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.Login input:focus {
+  scale: 1.3;
 }

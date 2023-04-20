@@ -49,40 +49,42 @@ const CreateTask = () => {
   }
 
   return (
-    <div className="area">
-      <h2>Create task</h2>
-      <form className={classes.create_task} onSubmit={handleSubmit}>
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          onChange={onChangeInput}
-          required
-        />
-        <label htmlFor="description">Desription:</label>
-        <input
-          type="text"
-          name="description"
-          onChange={onChangeInput}
-          required
-        />
-        <label htmlFor="deadline">Deadline:</label>
-        <input type="date" name="deadline" onChange={onChangeInput} required />
-        <label htmlFor="performer">Performer:</label>
-        <select name="performer" onChange={onChangeInput} required>
-          <option value="">Select performer</option>
-          {users.map((user) => {
-            return (
-              <option key={user.id} value={user.id}>
-                {user.firstname} {user.lastname}
-              </option>
-            )
-          })}
-        </select>
-        <button className={classes.button_form}>Create task</button>
-      </form>
-      {message.message && <span>{message.message}</span>}
+    <div className='Create_task'>
+      <div className="area">
+        <h2>Create task</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            onChange={onChangeInput}
+            required
+          />
+          <label htmlFor="description">Desription</label>
+          <input
+            type="text"
+            name="description"
+            onChange={onChangeInput}
+            required
+          />
+          <label htmlFor="deadline">Deadline</label>
+          <input type="date" name="deadline" onChange={onChangeInput} required />
+          <label htmlFor="performer">Performer</label>
+          <select name="performer" onChange={onChangeInput} required>
+            <option value="">Select performer</option>
+            {users.map((user) => {
+              return (
+                <option key={user.id} value={user.id}>
+                  {user.firstname} {user.lastname}
+                </option>
+              )
+            })}
+          </select>
+          <button className={classes.button_form}>Create task</button>
+        </form>
+        {message.message && <span>{message.message}</span>}
+      </div>
     </div>
   )
 }

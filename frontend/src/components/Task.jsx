@@ -68,9 +68,9 @@ const Task = () => {
       {localStorage.getItem('userFirstName') === taskData.firstname &&
         localStorage.getItem('userLastName') === taskData.lastname && (
           <div className="comments">
-            <h2>Close task</h2>
+            <h2 className={classes.close_h2}>Close task</h2>
             <form className={classes.close} onSubmit={handleSubmit}>
-              <label htmlFor="comment">Comment:</label>
+              <label htmlFor="comment">Comments</label>
               <input
                 type="text"
                 name="comment"

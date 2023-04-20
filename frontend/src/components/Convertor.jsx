@@ -76,7 +76,7 @@ const Convertor = () => {
       <div className="area">
         <h2>Convert values</h2>
         <form onSubmit={handleSubmit}>
-          <legend>Select the unit of measure to convert</legend>
+          <legend>Convert from</legend>
           <select name="unit1" onChange={onChangeInput} required>
             <option value="">Select value</option>
             <optgroup label="Mass">
@@ -95,7 +95,7 @@ const Convertor = () => {
               <option value="fahrenheit">Fahrenheit</option>
             </optgroup>
           </select>
-          <legend>Select the amount of unit</legend>
+          <legend>Amount</legend>
           <input
             type="number"
             step="0.01"
@@ -104,7 +104,7 @@ const Convertor = () => {
             onChange={onChangeInput}
             required
           />
-          <legend>Select the unit of measure to convert</legend>
+          <legend>Convert to</legend>
           <select name="unit2" onChange={onChangeInput} required>
             <option value="">Select value</option>
             {type.map((item) => {
@@ -117,7 +117,7 @@ const Convertor = () => {
               }
             })}
           </select>
-          <button type="submit">Submit</button>
+          <button type="submit">Convert</button>
         </form>
       </div>
       {result && <span>{result}</span>}

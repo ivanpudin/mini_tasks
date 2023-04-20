@@ -34,18 +34,6 @@ a {
   line-height: 1rem;
 }
 
-td a {
-  color: black;
-}
-
-td {
-  padding: 5px;
-}
-
-table {
-  margin-bottom: 1rem;
-}
-
 button {
   border: none;
   border-radius: 10px;
@@ -73,4 +61,8 @@ header .active,
 .Todo .active {
   opacity: 0.5;
   z-index: 0;
+}
+
+td a:hover {
+  border-bottom: 3px solid black;
 }

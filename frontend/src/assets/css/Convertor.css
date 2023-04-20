@@ -15,38 +15,37 @@
   border: none;
   border-radius: 10px;
   padding: 2rem;
-  width: 333.51px;
+  width: 403.27px;
   text-align: center;
 }
 
 .Convertor form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 2rem;
+  scale: 1.2;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  row-gap: 2rem;
+}
+
+.Convertor button {
+  font-size: 13.333px;
+  color: white;
+  background-color: black;
+  grid-column: span 2;
+  justify-self: center;
 }
 
 .Convertor input,
 .Convertor select {
   width: 10rem;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  background-color: transparent;
 }
 
-.Convertor button {
-  padding: 1rem;
-  font-size: 20px;
-}
-
-.Convertor input,
-.Convertor select,
-.Convertor legend {
-  margin-top: 1rem;
-}
-
-.Convertor button {
-  font-size: 13.333px;
-  margin-top: 3rem;
-  height: 2.5rem;
-  width: 5rem;
-  color: white;
-  background-color: black;
+.Convertor input:focus {
+  scale: 1.3;
 }

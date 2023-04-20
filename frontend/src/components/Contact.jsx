@@ -38,15 +38,15 @@ const Contact = () => {
       <div className="area">
         <h2>Contact us</h2>
         <form className={classes.contact_form} onSubmit={handleSubmit}>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Name</label>
           <input type="text" name="name" onChange={onChangeInput} required />
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email</label>
           <input type="email" name="email" onChange={onChangeInput} required />
-          <label htmlFor="subject">Subject:</label>
+          <label htmlFor="subject">Subject</label>
           <input type="text" name="subject" onChange={onChangeInput} required />
-          <label htmlFor="message">Message:</label>
+          <label htmlFor="message">Message</label>
           <input type="text" name="message" onChange={onChangeInput} required />
-          <button className={classes.button_form}>Register user</button>
+          <button className={classes.button_form}>Message us</button>
         </form>
       </div>
       {output.message && <span>{output.message}</span>}

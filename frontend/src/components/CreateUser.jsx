@@ -41,23 +41,23 @@ const CreateUser = () => {
       <div className="area">
         <h2>Create new user</h2>
         <form className={classes.contact_form} onSubmit={handleSubmit}>
-          <label htmlFor="firstname">Firstname:</label>
+          <label htmlFor="firstname">Firstname</label>
           <input
             type="text"
             name="firstname"
             onChange={onChangeInput}
             required
           />
-          <label htmlFor="lastname">Firstname:</label>
+          <label htmlFor="lastname">Lastname</label>
           <input
             type="text"
             name="lastname"
             onChange={onChangeInput}
             required
           />
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email</label>
           <input type="email" name="email" onChange={onChangeInput} required />
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
