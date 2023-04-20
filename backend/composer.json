@@ -1,27 +1,27 @@
 {
-    "name": "arseniiy/testing",
-    "require-dev": {
-        "phpunit/phpunit": "^10.0",
-        "phpro/grumphp": "^1.15"
-    },
-    "autoload": {
-        "psr-4": {
-            "Arseniiy\\Testing\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Arseniiy Kapshtyk",
-            "email": "kapshtykas@yandex.ru"
-        }
-    ],
-    "config": {
-        "allow-plugins": {
-            "phpro/grumphp": true
-        }
-    },
-    "require": {
-        "guzzlehttp/guzzle": "^7.5",
-        "doctrine/dbal": "^3.6"
+  "name": "arseniiy/testing",
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "phpro/grumphp": "^1.15"
+  },
+  "autoload": {
+    "psr-4": {
+      "Arseniiy\\Testing\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Arseniiy Kapshtyk",
+      "email": "kapshtykas@yandex.ru"
+    }
+  ],
+  "config": {
+    "allow-plugins": {
+      "phpro/grumphp": true
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^7.5",
+    "doctrine/dbal": "^3.6"
+  }
 }

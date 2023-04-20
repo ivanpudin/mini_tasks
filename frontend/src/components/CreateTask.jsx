@@ -1,23 +1,19 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getUsers, createTask } from '../api'
-import { TaskContext } from '../context'
 import { useNavigate } from 'react-router-dom'
 import classes from '../assets/css/table.module.css'
 
 const CreateTask = () => {
-  const [taskData, setTaskData] = useContext(TaskContext)
+  const [task, setTask] = useState({})
   const [users, setUsers] = useState([])
   const [message, setMessage] = useState({})
-  const [task, setTask] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
     getUsers().then((response) => {
-      if (JSON.stringify(response) !== JSON.stringify(users)) {
-        setUsers(response)
-      }
+      setUsers(response)
     })
-  }, [users])
+  }, [])
 
   const onChangeInput = (e) => {
     setTask({
@@ -30,19 +26,16 @@ const CreateTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await createTask(
+      await createTask(
         task.title,
         task.description,
         task.deadline,
         task.performer
-      ).then((res) => {
-          setTaskData([...taskData, JSON.parse(res)])
-        })
-        .then(
-          setTimeout(() => {
-            navigate('/todo/tasks')
-          }, 200)
-        )
+      ).then(
+        setTimeout(() => {
+          navigate('/todo/tasks')
+        }, 100)
+      )
     } catch (error) {
       setMessage(error.message)
     }
