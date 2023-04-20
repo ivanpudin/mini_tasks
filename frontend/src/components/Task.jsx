@@ -70,7 +70,7 @@ const Task = () => {
           <div className='comments'>
             <h2>Close task</h2>
             <form className={classes.close} onSubmit={handleSubmit}>
-              <label for="comment">Comment:</label>
+              <label htmlFor="comment">Comment:</label>
               <input
                 type="text"
                 name="comment"

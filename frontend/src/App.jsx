@@ -1,6 +1,6 @@
 import './assets/css/App.css'
 import { useState, useEffect } from 'react'
-import { UserContext } from './context'
+import { TaskContext, UserContext } from './context'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Login from './components/Login'
 import TasksTable from './components/TasksTable'
@@ -15,6 +15,8 @@ import Contact from './components/Contact'
 
 function App() {
   const [userState, setUserState] = useState({})
+
+  const [taskData, setTaskData] = useState([])
 
   const [overlay, setOverlay] = useState(true)
 
@@ -60,6 +62,7 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={[userState, setUserState]}>
+      <TaskContext.Provider value={[taskData, setTaskData]}>
         <div className="App">
           <Overlay
           handleOverlay={handleOverlay}
@@ -67,7 +70,6 @@ function App() {
           handleHeader12={handleHeader12}
           handleHeader3={handleHeader3} />
           <Routes>
-            <Route path="/todo/create-user" element={<CreateUser />} />
             <Route exact path='/convertor' element={
               <div className='element_container'>
                 <Header
@@ -159,8 +161,24 @@ function App() {
                 </div>
               }
             />
+            <Route
+            path="/todo/create_user"
+            element={
+              <div className='element_container'>
+                <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout} />
+                <div className='Todo'>
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <CreateUser />
+                    </ProtectedRoute>
+                </div>
+              </div>
+            } />
           </Routes>
         </div>
+      </TaskContext.Provider>
       </UserContext.Provider>
     </BrowserRouter>
   )

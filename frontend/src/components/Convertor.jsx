@@ -63,6 +63,7 @@ const Convertor = () => {
         <form onSubmit={handleSubmit}>
           <legend>Select the unit of measure to convert</legend>
           <select name='unit1' onChange={onChangeInput} required>
+            <option value="">Select value</option>
             <optgroup label='Mass'>
               <option value='kg'>Kilograms</option>
               <option value='grams'>Grams</option>
@@ -83,6 +84,7 @@ const Convertor = () => {
           <input type='number' step="0.01" id='quantity' name='quantity' onChange={onChangeInput}  required/>
           <legend>Select the unit of measure to convert</legend>
           <select name='unit2' onChange={onChangeInput} required >
+            <option value="">Select value</option>
             {type.map(item => {
             if (item.short !== convertResult.unit1) {
               return (<option key={item.short} value={item.short}>{item.full}</option>)

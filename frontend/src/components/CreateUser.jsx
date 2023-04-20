@@ -21,7 +21,7 @@ const CreateUser = () => {
     e.preventDefault()
     try {
       await createUser(userData.firstname, userData.lastname, userData.email, md5(userData.password))
-      navigate('/todo/')
+      navigate('/todo/tasks')
     } catch (error) {
       if (error.message) {
         setError(error.message)
@@ -32,10 +32,10 @@ const CreateUser = () => {
   }
 
   return (
-    <div className='Create user'>
+    <div className='Create_user'>
       <div className='area'>
-        <h2>Login</h2>
-        <form className={classes.login} onSubmit={handleSubmit}>
+        <h2>Create new user</h2>
+        <form className={classes.contact_form} onSubmit={handleSubmit}>
           <label htmlFor="firstname">Firstname:</label>
           <input type="text" name="firstname" onChange={onChangeInput} required />
           <label htmlFor="lastname">Firstname:</label>

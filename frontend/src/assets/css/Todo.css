@@ -1,5 +1,5 @@
 .Todo {
-    height: calc(100vh - 92px);
+    min-height: calc(100vh - 92px);
     width: 100vw;
     background: url('../content/placeholder3.jpg');
     background-repeat: no-repeat;
@@ -9,7 +9,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
 .area {

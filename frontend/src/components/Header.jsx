@@ -11,7 +11,7 @@ const Header = (props) => {
     <div>
       {props.headerState && <header>
         <h2>camel_case</h2>
-        <NavLink onClick={props.handleOverlay}>Back</NavLink>
+        <a href={this} onClick={props.handleOverlay}>Back</a>
       </header>}
 
 
@@ -19,16 +19,19 @@ const Header = (props) => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/todo/tasks/">All tasks</NavLink>
+              <NavLink to="/todo/tasks/">All</NavLink>
             </li>
             <li>
               <NavLink to="/todo/your-tasks/">Your</NavLink>
             </li>
             <li>
-              <NavLink to="/todo/create-task/">Create</NavLink>
+              <NavLink to="/todo/create-task/">Create task</NavLink>
             </li>
             <li>
-              <NavLink onClick={props.handleOverlay}>Back</NavLink>
+              <NavLink to='/todo/create_user'>Create user</NavLink>
+            </li>
+            <li>
+              <a href={this} onClick={props.handleOverlay}>Back</a>
             </li>
           </ul>
         </nav>
@@ -38,11 +41,6 @@ const Header = (props) => {
               Welcome, {userState.firstname} {userState.lastname}
             </p>
             <button onClick={props.logout}>Logout</button>
-          </div>
-        )}
-        {!userState.id && (
-          <div className='logout'>
-            <button onClick={navigate("/todo/create_user")}>Create user</button>
           </div>
         )}
       </header>}

@@ -1,5 +1,5 @@
 .Convertor {
-    height: calc(100vh - 92px);
+    min-height: calc(100vh - 92px);
     background: url('../content/placeholder1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
