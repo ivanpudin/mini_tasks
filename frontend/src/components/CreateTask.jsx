@@ -76,8 +76,8 @@ const CreateTask = () => {
           </select>
           <button className={classes.button_form}>Create task</button>
         </form>
-        {message.message && <span>{message.message}</span>}
       </div>
+      {message.message && <span>{message.message}</span>}
     </div>
   )
 }

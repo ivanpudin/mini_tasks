@@ -65,9 +65,9 @@ const CreateUser = () => {
             required
           />
           <button className={classes.button_form}>Register user</button>
-          {error && <div>{error}</div>}
         </form>
       </div>
+      {error && <span>{error}</span>}
     </div>
   )
 }

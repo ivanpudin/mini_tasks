@@ -53,9 +53,9 @@ const Login = () => {
             required
           />
           <button className={classes.button_form}>Login</button>
-          {error && <div>{error}</div>}
         </form>
       </div>
+      {error && <span>{error}</span>}
     </div>
   )
 }
