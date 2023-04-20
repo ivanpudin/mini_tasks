@@ -35,7 +35,7 @@ const CreateUser = () => {
     <div className='Create_user'>
       <div className='area'>
         <h2>Create new user</h2>
-        <form className={classes.login} onSubmit={handleSubmit}>
+        <form className={classes.contact_form} onSubmit={handleSubmit}>
           <label htmlFor="firstname">Firstname:</label>
           <input type="text" name="firstname" onChange={onChangeInput} required />
           <label htmlFor="lastname">Firstname:</label>

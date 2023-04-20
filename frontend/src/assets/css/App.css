@@ -58,6 +58,7 @@ select {
     border: 0.9px solid black;
     border-radius: 10px;
     text-align: center;
+    outline: none;
 }
 
 input:hover,

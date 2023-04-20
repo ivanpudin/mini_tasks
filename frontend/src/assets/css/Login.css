@@ -11,19 +11,13 @@
     margin-bottom: 2rem;
 }
 
-.Login form,
-.Create_user form {
+.Login form {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-/* .Create_user form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-} */
 
 .Login input,
 .Create_user input {
@@ -39,5 +33,10 @@
 }
 
 .Create_user button {
-    margin-top: 2rem;
+    margin-top: 1rem;
+}
+
+.Create_user form {
+    padding: 2rem;
+    gap: 1rem   ;
 }

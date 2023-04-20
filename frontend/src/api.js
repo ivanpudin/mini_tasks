@@ -170,7 +170,7 @@ export const submitForm = async (name, email, subject, message) => {
   } else if (!response.ok) {
     const error = await response.json()
     throw new Error(error.message || 'Failed to connect')
-  } else if (response.status === 201) {
+  } else if (response.status === 200) {
     return await response.json()
   }
 }

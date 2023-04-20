@@ -1,6 +1,6 @@
 import './assets/css/App.css'
 import { useState, useEffect } from 'react'
-import { UserContext } from './context'
+import { TaskContext, UserContext } from './context'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Login from './components/Login'
 import TasksTable from './components/TasksTable'
@@ -15,6 +15,8 @@ import Contact from './components/Contact'
 
 function App() {
   const [userState, setUserState] = useState({})
+
+  const [taskData, setTaskData] = useState([])
 
   const [overlay, setOverlay] = useState(true)
 
@@ -60,6 +62,7 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={[userState, setUserState]}>
+      <TaskContext.Provider value={[taskData, setTaskData]}>
         <div className="App">
           <Overlay
           handleOverlay={handleOverlay}
@@ -175,6 +178,7 @@ function App() {
             } />
           </Routes>
         </div>
+      </TaskContext.Provider>
       </UserContext.Provider>
     </BrowserRouter>
   )
