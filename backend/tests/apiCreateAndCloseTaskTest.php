@@ -93,6 +93,6 @@ class apiCreateAndCloseTaskTest extends \PHPUnit\Framework\TestCase
 
  public function tearDown(): void
  {
-  $this->__connection->exec("DROP DATABASE $this->__testdbname");
+ $this->__connection->exec("DROP DATABASE $this->__testdbname");
  }
 }

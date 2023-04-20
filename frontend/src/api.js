@@ -127,14 +127,15 @@ export const convertor = async (unit1, unit2, quantity) => {
     body: JSON.stringify({ unit1, unit2, quantity })
   })
 
-  if (response.status === 401) {
-    throw new Error('Wrong email or password')
+  if (response.status === 400) {
+    const error = await response.json()
+    throw new Error(error.message)
   } else if (!response.ok) {
     const error = await response.json()
-    throw new Error(error.message || 'Failed to fetch tasks')
+    throw new Error(error.message || 'Failed to connect')
+  } else if (response.status === 200) {
+    return await response.json()
   }
-
-  return await response.json()
 }
 
 export const createUser = async (firstname, lastname, email, password) => {
@@ -150,8 +151,27 @@ export const createUser = async (firstname, lastname, email, password) => {
     throw new Error(error.message)
   } else if (!response.ok) {
     const error = await response.json()
-    throw new Error(error.message || 'Failed to fetch tasks')
+    throw new Error(error.message || 'Failed to connect')
   } else if (response.status === 201) {
     return await response.json()
   }
 }
+
+export const submitForm = async (name, email, subject, message) => {
+  const response = await fetch('http://localhost:7001/task2/webform-api.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, subject, message })
+  })
+
+  if (response.status === 400 || response.status === 409) {
+    const error = await response.json()
+    throw new Error(error.message)
+  } else if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.message || 'Failed to connect')
+  } else if (response.status === 201) {
+    return await response.json()
+  }
+}
+
