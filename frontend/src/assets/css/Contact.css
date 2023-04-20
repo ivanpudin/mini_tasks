@@ -1,40 +1,40 @@
 .Contact {
-    min-height: calc(100vh - 92px);
-    background: url('../content/placeholder2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  min-height: calc(100vh - 92px);
+  background: url('../content/placeholder2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .Contact form {
-    padding: 2rem;
-    scale: 1.2;
+  padding: 2rem;
+  scale: 1.2;
 }
 
 .Contact span {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
-    border-radius: 10px;
-    width: 383.16px;
-    text-align: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 383.16px;
+  text-align: center;
 }
 
 .Contact input {
-    width: 10rem;
-    border: none;
-    border-bottom: 1px solid black;
-    border-radius: 0;
-    background-color: transparent;
+  width: 10rem;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  background-color: transparent;
 }
 
 .Contact input:focus {
-    scale: 1.3;
+  scale: 1.3;
 }
 
 .Contact button {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }

@@ -36,7 +36,7 @@ const Task = () => {
   }
 
   return (
-    <div className='area'>
+    <div className="area">
       <table>
         <thead>
           <tr>
@@ -67,7 +67,7 @@ const Task = () => {
       </table>
       {localStorage.getItem('userFirstName') === taskData.firstname &&
         localStorage.getItem('userLastName') === taskData.lastname && (
-          <div className='comments'>
+          <div className="comments">
             <h2>Close task</h2>
             <form className={classes.close} onSubmit={handleSubmit}>
               <label htmlFor="comment">Comment:</label>

@@ -11,9 +11,11 @@ const TasksTable = ({ user }) => {
 
   useEffect(() => {
     getTasks(user, deadline).then((response) => {
-      setTasks(response)
+      if (JSON.stringify(response) !== JSON.stringify(tasks)) {
+        setTasks(response)
+      }
     })
-  }, [user, deadline])
+  }, [user, deadline, tasks])
 
   const onChangeInput = (e) => {
     setDeadline(e.target.value)
@@ -26,9 +28,9 @@ const TasksTable = ({ user }) => {
   }
 
   return (
-    <div className='area'>
+    <div className="area">
       <h2>Filter date</h2>
-      <form className='date_form'>
+      <form className="date_form">
         <label>
           <input type="date" name="date" onChange={onChangeInput} />
           <button type="button" onClick={onClearDate}>

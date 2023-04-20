@@ -5,46 +5,51 @@ import placeholder3 from '../assets/content/placeholder3.jpg'
 import '../assets/css/Overlay.css'
 
 const Overlay = (props) => {
-    return(
-        <div className={props.overlay ? 'Overlay overlay_in' : 'Overlay overlay_out'}>
-            <NavLink
-            to='/convertor'
-            onClick={() => {
-                props.handleOverlay()
-                props.handleHeader12()
-            }}
-            className={props.overlay ? 'tile1_in' : 'tile1_out'}>
-                <div className="container">
-                    <img src={placeholder1} alt="placeholder" />
-                    <h1>Convertor</h1>
-                </div>
-            </NavLink>
-            <NavLink
-            to='/contact'
-            onClick={() => {
-                props.handleOverlay()
-                props.handleHeader12()
-            }}
-            className={props.overlay ? 'tile2_in' : 'tile2_out'}>
-                <div className="container">
-                    <img src={placeholder2} alt="placeholder" />
-                    <h1>Contact us</h1>
-                </div>
-            </NavLink>
-            <NavLink
-            to='/todo/tasks'
-            onClick={() => {
-                props.handleOverlay()
-                props.handleHeader3()
-            }}
-            className={props.overlay ? 'tile3_in' : 'tile3_out'}>
-                <div className="container">
-                    <img src={placeholder3} alt="placeholder" />
-                    <h1>To do list</h1>
-                </div>
-            </NavLink>
+  return (
+    <div
+      className={props.overlay ? 'Overlay overlay_in' : 'Overlay overlay_out'}
+    >
+      <NavLink
+        to="/convertor"
+        onClick={() => {
+          props.handleOverlay()
+          props.handleHeader12()
+        }}
+        className={props.overlay ? 'tile1_in' : 'tile1_out'}
+      >
+        <div className="container">
+          <img src={placeholder1} alt="placeholder" />
+          <h1>Convertor</h1>
         </div>
-    )
+      </NavLink>
+      <NavLink
+        to="/contact"
+        onClick={() => {
+          props.handleOverlay()
+          props.handleHeader12()
+        }}
+        className={props.overlay ? 'tile2_in' : 'tile2_out'}
+      >
+        <div className="container">
+          <img src={placeholder2} alt="placeholder" />
+          <h1>Contact us</h1>
+        </div>
+      </NavLink>
+      <NavLink
+        to="/todo/tasks"
+        onClick={() => {
+          props.handleOverlay()
+          props.handleHeader3()
+        }}
+        className={props.overlay ? 'tile3_in' : 'tile3_out'}
+      >
+        <div className="container">
+          <img src={placeholder3} alt="placeholder" />
+          <h1>To do list</h1>
+        </div>
+      </NavLink>
+    </div>
+  )
 }
 
 export default Overlay

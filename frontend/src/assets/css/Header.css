@@ -1,25 +1,25 @@
 header {
-    height: 92px;
-    padding: 2rem;
-    color: white;
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  height: 92px;
+  padding: 2rem;
+  color: white;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header a {
-    margin: 0 1rem 0 1rem;
+  margin: 0 1rem 0 1rem;
 }
 
 .logout {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .logout button {
-    margin-left: 1rem;
-    padding: 0.5rem;
+  margin-left: 1rem;
+  padding: 0.5rem;
 }

@@ -11,12 +11,13 @@ const CreateTask = () => {
   const [task, setTask] = useState({})
   const navigate = useNavigate()
 
-
   useEffect(() => {
     getUsers().then((response) => {
-      setUsers(response)
+      if (JSON.stringify(response) !== JSON.stringify(users)) {
+        setUsers(response)
+      }
     })
-  }, [])
+  }, [users])
 
   const onChangeInput = (e) => {
     setTask({
@@ -34,56 +35,54 @@ const CreateTask = () => {
         task.description,
         task.deadline,
         task.performer
-      ).then((res) =>{
-        setTaskData([...taskData, JSON.parse(res)])
-      }).then(
-        navigate('/todo/tasks')
-      )
+      ).then((res) => {
+          setTaskData([...taskData, JSON.parse(res)])
+        })
+        .then(
+          setTimeout(() => {
+            navigate('/todo/tasks')
+          }, 200)
+        )
     } catch (error) {
       setMessage(error.message)
     }
   }
 
   return (
-    <div className='area'>
-        <h2>Create task</h2>
-        <form className={classes.create_task} onSubmit={handleSubmit}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            onChange={onChangeInput}
-            required
-          />
-          <label htmlFor="description">Desription:</label>
-          <input
-            type="text"
-            name="description"
-            onChange={onChangeInput}
-            required
-          />
-          <label htmlFor="deadline">Deadline:</label>
-          <input
-            type="date"
-            name="deadline"
-            onChange={onChangeInput}
-            required
-          />
-          <label htmlFor="performer">Performer:</label>
-          <select name="performer" onChange={onChangeInput} required>
-            <option value="">Select performer</option>
-            {users.map((user) => {
-              return (
-                <option key={user.id} value={user.id}>
-                  {user.firstname} {user.lastname}
-                </option>
-              )
-            })}
-          </select>
-          <button className={classes.button_form}>Create task</button>
-        </form>
-        {message.message && <span>{message.message}</span>}
+    <div className="area">
+      <h2>Create task</h2>
+      <form className={classes.create_task} onSubmit={handleSubmit}>
+        <label htmlFor="title">Title:</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          onChange={onChangeInput}
+          required
+        />
+        <label htmlFor="description">Desription:</label>
+        <input
+          type="text"
+          name="description"
+          onChange={onChangeInput}
+          required
+        />
+        <label htmlFor="deadline">Deadline:</label>
+        <input type="date" name="deadline" onChange={onChangeInput} required />
+        <label htmlFor="performer">Performer:</label>
+        <select name="performer" onChange={onChangeInput} required>
+          <option value="">Select performer</option>
+          {users.map((user) => {
+            return (
+              <option key={user.id} value={user.id}>
+                {user.firstname} {user.lastname}
+              </option>
+            )
+          })}
+        </select>
+        <button className={classes.button_form}>Create task</button>
+      </form>
+      {message.message && <span>{message.message}</span>}
     </div>
   )
 }

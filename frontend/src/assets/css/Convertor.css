@@ -1,52 +1,52 @@
 .Convertor {
-    min-height: calc(100vh - 92px);
-    background: url('../content/placeholder1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center bottom;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  min-height: calc(100vh - 92px);
+  background: url('../content/placeholder1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .Convertor span {
-    background-color: rgba(255, 255, 255, 0.85);
-    border: none;
-    border-radius: 10px;
-    padding: 2rem;
-    width: 333.51px;
-    text-align: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 333.51px;
+  text-align: center;
 }
 
 .Convertor form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .Convertor input,
 .Convertor select {
-    width: 10rem;
+  width: 10rem;
 }
 
 .Convertor button {
-    padding: 1rem;
-    font-size: 20px;
+  padding: 1rem;
+  font-size: 20px;
 }
 
 .Convertor input,
 .Convertor select,
 .Convertor legend {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .Convertor button {
-    font-size: 13.333px;
-    margin-top: 3rem;
-    height: 2.5rem;
-    width: 5rem;
-    color: white;
-    background-color: black;
+  font-size: 13.333px;
+  margin-top: 3rem;
+  height: 2.5rem;
+  width: 5rem;
+  color: white;
+  background-color: black;
 }

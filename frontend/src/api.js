@@ -46,7 +46,6 @@ export const getTasks = async (user = null, deadline = null) => {
   } else if (response.status === 200) {
     return await response.json()
   }
-
 }
 
 export const getTask = async (task) => {
@@ -121,11 +120,14 @@ export const closeTask = async (id, comment) => {
 }
 
 export const convertor = async (unit1, unit2, quantity) => {
-  const response = await fetch('http://localhost:7001/task1/measurement-api.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ unit1, unit2, quantity })
-  })
+  const response = await fetch(
+    'http://localhost:7001/task1/measurement-api.php',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ unit1, unit2, quantity })
+    }
+  )
 
   if (response.status === 400) {
     const error = await response.json()
@@ -139,7 +141,7 @@ export const convertor = async (unit1, unit2, quantity) => {
 }
 
 export const createUser = async (firstname, lastname, email, password) => {
-  const action = "create_user"
+  const action = 'create_user'
   const response = await fetch('http://localhost:7001/task3/api.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -174,4 +176,3 @@ export const submitForm = async (name, email, subject, message) => {
     return await response.json()
   }
 }
-

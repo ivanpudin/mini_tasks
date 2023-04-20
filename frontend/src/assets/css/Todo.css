@@ -1,48 +1,48 @@
 .Todo {
-    min-height: calc(100vh - 92px);
-    width: 100vw;
-    background: url('../content/placeholder3.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  min-height: calc(100vh - 92px);
+  width: 100vw;
+  background: url('../content/placeholder3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .area {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 10px;
-    padding: 2rem;
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .area .date_form {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .area .date_form button {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .area h2 {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .area button {
-    color: white;
-    background-color: black;
-    padding: 0.5rem;
+  color: white;
+  background-color: black;
+  padding: 0.5rem;
 }
 
 .area .comments {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,42 +1,42 @@
 .Login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 4rem;
 }
 
 .Login h2 {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .Login form {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Login input,
 .Create_user input {
-    width: 11rem;
-} 
+  width: 11rem;
+}
 
 .Login button {
-    margin-top: 2rem;
-    height: 2.5rem;
-    width: 5rem;
-    color: white;
-    background-color: black;
+  margin-top: 2rem;
+  height: 2.5rem;
+  width: 5rem;
+  color: white;
+  background-color: black;
 }
 
 .Create_user button {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .Create_user form {
-    padding: 2rem;
-    gap: 1rem   ;
+  padding: 2rem;
+  gap: 1rem;
 }

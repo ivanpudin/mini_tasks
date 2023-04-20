@@ -20,7 +20,12 @@ const CreateUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await createUser(userData.firstname, userData.lastname, userData.email, md5(userData.password))
+      await createUser(
+        userData.firstname,
+        userData.lastname,
+        userData.email,
+        md5(userData.password)
+      )
       navigate('/todo/tasks')
     } catch (error) {
       if (error.message) {
@@ -32,14 +37,24 @@ const CreateUser = () => {
   }
 
   return (
-    <div className='Create_user'>
-      <div className='area'>
+    <div className="Create_user">
+      <div className="area">
         <h2>Create new user</h2>
         <form className={classes.contact_form} onSubmit={handleSubmit}>
           <label htmlFor="firstname">Firstname:</label>
-          <input type="text" name="firstname" onChange={onChangeInput} required />
+          <input
+            type="text"
+            name="firstname"
+            onChange={onChangeInput}
+            required
+          />
           <label htmlFor="lastname">Firstname:</label>
-          <input type="text" name="lastname" onChange={onChangeInput} required />
+          <input
+            type="text"
+            name="lastname"
+            onChange={onChangeInput}
+            required
+          />
           <label htmlFor="email">Email:</label>
           <input type="email" name="email" onChange={onChangeInput} required />
           <label htmlFor="password">Password:</label>

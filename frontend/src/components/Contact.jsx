@@ -17,7 +17,12 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await submitForm(userData.name, userData.email, userData.subject, userData.message)
+      const res = await submitForm(
+        userData.name,
+        userData.email,
+        userData.subject,
+        userData.message
+      )
       setOutput(res)
     } catch (error) {
       if (error.message) {
@@ -29,8 +34,8 @@ const Contact = () => {
   }
 
   return (
-    <div className='Contact'>
-      <div className='area'>
+    <div className="Contact">
+      <div className="area">
         <h2>Contact us</h2>
         <form className={classes.contact_form} onSubmit={handleSubmit}>
           <label htmlFor="name">Name:</label>
