@@ -1,6 +1,6 @@
 import './assets/css/App.css'
 import { useState, useEffect } from 'react'
-import { TaskContext, UserContext } from './context'
+import { UserContext } from './context'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Login from './components/Login'
 import TasksTable from './components/TasksTable'
@@ -15,8 +15,6 @@ import Contact from './components/Contact'
 
 function App() {
   const [userState, setUserState] = useState({})
-
-  const [taskData, setTaskData] = useState([])
 
   const [overlay, setOverlay] = useState(true)
 
@@ -62,155 +60,137 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={[userState, setUserState]}>
-        <TaskContext.Provider value={[taskData, setTaskData]}>
-          <div className="App">
-            <Overlay
-              handleOverlay={handleOverlay}
-              overlay={overlay}
-              handleHeader12={handleHeader12}
-              handleHeader3={handleHeader3}
+        <div className="App">
+          <Overlay
+            handleOverlay={handleOverlay}
+            overlay={overlay}
+            handleHeader12={handleHeader12}
+            handleHeader3={handleHeader3}
+          />
+          <Routes>
+            <Route
+              exact
+              path="/convertor"
+              element={
+                <div className="element_container">
+                  <Header handleOverlay={handleOverlay} headerState={header} />
+                  <Convertor />
+                </div>
+              }
             />
-            <Routes>
-              <Route
-                exact
-                path="/convertor"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                    />
-                    <Convertor />
+            <Route
+              exact
+              path="/contact"
+              element={
+                <div className="element_container">
+                  <Header handleOverlay={handleOverlay} headerState={header} />
+                  <Contact />
+                </div>
+              }
+            />
+            <Route
+              exact
+              path="/todo/"
+              element={
+                <div className="element_container">
+                  <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout}
+                  />
+                  <div className="Todo">
+                    <Login />
                   </div>
-                }
-              />
-              <Route
-                exact
-                path="/contact"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                    />
-                    <Contact />
+                </div>
+              }
+            />
+            <Route
+              path="/todo/tasks"
+              element={
+                <div className="element_container">
+                  <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout}
+                  />
+                  <div className="Todo">
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <TasksTable />
+                    </ProtectedRoute>
                   </div>
-                }
-              />
-              <Route
-                exact
-                path="/todo/"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                      logout={handleLogout}
-                    />
-                    <div className="Todo">
-                      <Login />
-                    </div>
+                </div>
+              }
+            />
+            <Route
+              path="/todo/your-tasks/"
+              element={
+                <div className="element_container">
+                  <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout}
+                  />
+                  <div className="Todo">
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <TasksTable user={userState.id} />
+                    </ProtectedRoute>
                   </div>
-                }
-              />
-              <Route
-                path="/todo/tasks"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                      logout={handleLogout}
-                    />
-                    <div className="Todo">
-                      <ProtectedRoute
-                        userState={localStorage.getItem('userId')}
-                      >
-                        <TasksTable />
-                      </ProtectedRoute>
-                    </div>
+                </div>
+              }
+            />
+            <Route
+              path="/todo/create-task/"
+              element={
+                <div className="element_container">
+                  <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout}
+                  />
+                  <div className="Todo">
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <CreateTask />
+                    </ProtectedRoute>
                   </div>
-                }
-              />
-              <Route
-                path="/todo/your-tasks/"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                      logout={handleLogout}
-                    />
-                    <div className="Todo">
-                      <ProtectedRoute
-                        userState={localStorage.getItem('userId')}
-                      >
-                        <TasksTable user={userState.id} />
-                      </ProtectedRoute>
-                    </div>
+                </div>
+              }
+            />
+            <Route
+              path="/todo/tasks/:task_id"
+              element={
+                <div className="element_container">
+                  <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout}
+                  />
+                  <div className="Todo">
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <Task />
+                    </ProtectedRoute>
                   </div>
-                }
-              />
-              <Route
-                path="/todo/create-task/"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                      logout={handleLogout}
-                    />
-                    <div className="Todo">
-                      <ProtectedRoute
-                        userState={localStorage.getItem('userId')}
-                      >
-                        <CreateTask />
-                      </ProtectedRoute>
-                    </div>
+                </div>
+              }
+            />
+            <Route
+              path="/todo/create_user"
+              element={
+                <div className="element_container">
+                  <Header
+                    handleOverlay={handleOverlay}
+                    headerState={header}
+                    logout={handleLogout}
+                  />
+                  <div className="Todo">
+                    <ProtectedRoute userState={localStorage.getItem('userId')}>
+                      <CreateUser />
+                    </ProtectedRoute>
                   </div>
-                }
-              />
-              <Route
-                path="/todo/tasks/:task_id"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                      logout={handleLogout}
-                    />
-                    <div className="Todo">
-                      <ProtectedRoute
-                        userState={localStorage.getItem('userId')}
-                      >
-                        <Task />
-                      </ProtectedRoute>
-                    </div>
-                  </div>
-                }
-              />
-              <Route
-                path="/todo/create_user"
-                element={
-                  <div className="element_container">
-                    <Header
-                      handleOverlay={handleOverlay}
-                      headerState={header}
-                      logout={handleLogout}
-                    />
-                    <div className="Todo">
-                      <ProtectedRoute
-                        userState={localStorage.getItem('userId')}
-                      >
-                        <CreateUser />
-                      </ProtectedRoute>
-                    </div>
-                  </div>
-                }
-              />
-            </Routes>
-          </div>
-        </TaskContext.Provider>
+                </div>
+              }
+            />
+          </Routes>
+        </div>
       </UserContext.Provider>
     </BrowserRouter>
   )

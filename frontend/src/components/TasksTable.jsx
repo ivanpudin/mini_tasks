@@ -2,20 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { getTasks } from '../api'
 import { Link } from 'react-router-dom'
 import classes from '../assets/css/table.module.css'
-import { useContext } from 'react'
-import { TaskContext } from '../context'
 
 const TasksTable = ({ user }) => {
-  const [tasks, setTasks] = useContext(TaskContext)
+  const [tasks, setTasks] = useState([])
   const [deadline, setDeadline] = useState(null)
 
   useEffect(() => {
     getTasks(user, deadline).then((response) => {
-      if (JSON.stringify(response) !== JSON.stringify(tasks)) {
-        setTasks(response)
-      }
+      setTasks(response)
     })
-  }, [user, deadline, tasks])
+  }, [user, deadline])
 
   const onChangeInput = (e) => {
     setDeadline(e.target.value)
