@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["CONTENT_TYPE"] == 'applica
     } else {
         if (!mb_strlen($name) || !mb_strlen($subject) || !mb_strlen($message)) {
             http_response_code(400);
-            echo json_encode(array("message" => "Name, subject or message cannot ne empty."));
+            echo json_encode(array("message" => "Name, subject or message cannot be empty."));
         } else {
           $stmt = $conn->prepare("INSERT INTO `contact` (`name`, `email`, `subject`, `message`) VALUES (?, ?, ?, ?)");
           $stmt->bind_param("ssss", $name, $email, $subject, $message);
