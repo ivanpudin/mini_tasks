@@ -8,6 +8,36 @@ Small full-stack app built to try out PHP
 - Docker
 - Apache
 
+# Features
+- Convert different temperature, speed and mass units
+- Submit feedback
+- Write, update to-do tasks with multi-user functionality
+
+# Getting started
+Clone repository
+
+Create a docker container
+```
+docker-compose up
+```
+Run frontend
+```
+cd frontend
+npm start
+```
+
+# Credits
+[Unsplash](https://unsplash.com) for pictures
+
+# Authors
+[Arseniiy Kapshtyk](https://github.com/Kapshtak)
+
+[Ivan Pudin](https://github.com/ivanpudin)
+
+[Shree Ram Bhusal](https://github.com/shree0007)
+
+# Screenshots
+
 # Convertor
 This is a PHP script that handles unit conversion requests. It includes conversion functions for mass, speed, and temperature, and accepts POST requests containing a JSON payload with unit1, unit2, and quantity parameters. It determines the appropriate conversion function based on the unit1 parameter, performs the conversion, and returns a JSON response with the converted value and corresponding units. The script has been tested using PHPUnit to ensure accurate conversion results.
 ## Endpoint
