@@ -34,9 +34,10 @@
   margin-bottom: 2rem;
 }
 
-.area input {
+.area input,
+.area select {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 0.9px solid black;
   border-radius: 0;
   background-color: transparent;
 }
@@ -88,7 +89,7 @@ td {
 .Create_user input {
   width: 10rem;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 0.9px solid black;
   border-radius: 0;
   background-color: transparent;
 }
@@ -104,7 +105,7 @@ td {
 .Create_task input,
 .Create_task select {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 0.9px solid black;
   border-radius: 0;
   background-color: transparent;
   word-break: normal;
@@ -119,7 +120,7 @@ td {
 }
 
 .Create_task span {
-
+  width: 449.84px;
 }
 
 .Create_user span {

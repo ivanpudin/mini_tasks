@@ -41,7 +41,7 @@
 .Convertor select {
   width: 10rem;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 0.9px solid black;
   border-radius: 0;
   background-color: transparent;
 }
