@@ -38,6 +38,14 @@ npm start
 
 # Screenshots
 
+![Menu](https://github.com/ivanpudin/mini_tasks/blob/main/frontend/src/assets/content/screenshot1.png)
+
+![Convertor](https://github.com/ivanpudin/mini_tasks/blob/main/frontend/src/assets/content/screenshot2.png)
+
+![Contact form](https://github.com/ivanpudin/mini_tasks/blob/main/frontend/src/assets/content/screenshot3.png)
+
+![To-do](https://github.com/ivanpudin/mini_tasks/blob/main/frontend/src/assets/content/screenshot4.png)
+
 # Convertor
 This is a PHP script that handles unit conversion requests. It includes conversion functions for mass, speed, and temperature, and accepts POST requests containing a JSON payload with unit1, unit2, and quantity parameters. It determines the appropriate conversion function based on the unit1 parameter, performs the conversion, and returns a JSON response with the converted value and corresponding units. The script has been tested using PHPUnit to ensure accurate conversion results.
 ## Endpoint
