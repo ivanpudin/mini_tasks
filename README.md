@@ -1,4 +1,14 @@
-# 1: Convertor app
+#App
+Small full-stack app built to try out PHP
+
+#Technologies used
+- PHP (PHPUnit, GrumPHP, GuzzleHTTP)
+- React
+- MySQL
+- Docker
+- Apache
+
+#Convertor
 This is a PHP script that handles unit conversion requests. It includes conversion functions for mass, speed, and temperature, and accepts POST requests containing a JSON payload with unit1, unit2, and quantity parameters. It determines the appropriate conversion function based on the unit1 parameter, performs the conversion, and returns a JSON response with the converted value and corresponding units. The script has been tested using PHPUnit to ensure accurate conversion results.
 ## Endpoint
 ### POST request
@@ -21,7 +31,8 @@ response
     "message": "100 kilograms equals to 220.46 pounds"
 }
 ```
-# 2: Contact us form
+
+#Contact us form
 The second part is a PHP script that handles a contact form submission. It includes a database connection script and accepts POST requests containing a JSON payload with name, email, subject, and message parameters. It first validates the email format and ensures that the name, subject, and message are not empty. If validation passes, it inserts the contact form data into a database table and returns a JSON response indicating success or failure.
 ## Endpoint
 ### POST request
@@ -45,7 +56,8 @@ response
     "message": "Contact form has been submitted successfully."
 }
 ```
-# 3: ToDo app
+
+#To-do
 The third part is a PHP API for task data handles requests based on the method and action parameters in the requests. The API contains two sections - one for users and one for tasks.
 
 In the users section, the API provides credential checking, user creation and retrieval of user information. The credentials check endpoint checks that the credentials provided by the user are valid, while the create user endpoint creates a new user with the details provided.
