@@ -44,7 +44,6 @@ class createTaskAPI
              $response["message"] = "Error: " . $stmt->error;
              echo json_encode($response);
             }
-            echo json_encode($response);
            }
         }
       }
