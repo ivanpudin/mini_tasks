@@ -9,9 +9,9 @@ Small full-stack app built to try out PHP
 - Apache
 
 # Features
-- Convert different temperature, speed and mass units
-- Submit feedback
-- Write, update to-do tasks with multi-user functionality
+- Convertor (See more below)
+- Contact form (See more below)
+- To-do (See more below)
 
 # Getting started
 Clone repository
@@ -62,7 +62,7 @@ response
 }
 ```
 
-# Contact us form
+# Contact form
 The second part is a PHP script that handles a contact form submission. It includes a database connection script and accepts POST requests containing a JSON payload with name, email, subject, and message parameters. It first validates the email format and ensures that the name, subject, and message are not empty. If validation passes, it inserts the contact form data into a database table and returns a JSON response indicating success or failure.
 ## Endpoint
 ### POST request
