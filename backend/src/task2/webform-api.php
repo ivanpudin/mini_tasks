@@ -3,7 +3,11 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT");
 header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
 header("Content-Type: application/json");
+$token = '6112498499:AAHeg-V30cy7u_K5hCXO32K-jqnVgWpmwqU';
+$chat_id = '196187013';
+$url = 'https://api.telegram.org/bot' . $token . '/sendMessage?chat_id=' . $chat_id;
 ?>
+
 
 <?php
 include 'connect.php';
@@ -29,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_SERVER["CONTENT_TYPE"] == 'applica
            http_response_code(201);
            $response["message"] = "Contact form has been submitted successfully.";
            echo json_encode($response);
+           file_get_contents($url . '&text=' . urlencode("Name: $name, email: $email, subject: $subject, message: $message."));
           } else {
            http_response_code(500);
            $response["message"] = "Error: " . $stmt->error;
